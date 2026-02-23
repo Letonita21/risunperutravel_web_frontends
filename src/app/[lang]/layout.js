@@ -1,3 +1,4 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/menu/Navbar";
 import Footer from "@/components/menu/Footer";
@@ -27,7 +28,8 @@ export default async function LangLayout({ children, params }) {
 
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-      <GoogleAnalytics gaId="G-16GXS72KM7" />
+      {/* cambio de clave */}
+      <GoogleAnalytics gaId="G-H99RVXNPP6" />
       <CookieBanner />
       <Navbar dict={dict.Navbar} lang={lang} />
       <main className="w-full items-center justify-center flex flex-col">
