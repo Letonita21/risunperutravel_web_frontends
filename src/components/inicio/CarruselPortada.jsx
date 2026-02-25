@@ -13,193 +13,165 @@ import {
 } from "@/icons";
 import { numeroWhatsapp } from "../contactos/numero";
 import { HandRightIcon } from "@/icons";
+
 const message = "Hi!, Risun Peru Travel...";
 
 const CarruselPortada = ({ portadaHome, dict, lang }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const url = process.env.NEXT_PUBLIC_URL;
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % portadaHome.length);
     }, 10000);
     return () => clearInterval(interval);
-  }, []);
-  const url = process.env.NEXT_PUBLIC_URL;
+  }, [portadaHome.length]);
+
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full min-h-[100svh] overflow-hidden">
       <div
         className="flex transition-transform duration-1000 ease-in-out"
-        style={{
-          transform: `translateX(-${currentIndex * 100}%)`,
-          width: `100%`,
-        }}
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {portadaHome.map((src, idx) => (
           <div
             key={idx}
-            className="relative w-full h-screen shrink-0 overflow-hidden"
+            className="relative w-full min-h-[100svh] shrink-0 overflow-hidden"
           >
-            <div className="relative w-full h-[98vh] ">
+            {/* IMAGEN */}
+            <Image
+              src={`${url}${src.ruta}`}
+              alt={src.nombre}
+              fill
+              priority={idx === 0}
+              sizes="100vw"
+              className={`object-cover transition-transform duration-[12000ms] ${
+                idx === currentIndex ? "scale-110" : "scale-100"
+              }`}
+            />
+
+            {/* OVERLAY */}
+            <div className="absolute inset-0 bg-black/30" />
+
+            {/* CONTENIDO */}
+            <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-8 text-white min-h-[100svh]">
+              {/* LOGO */}
               <Image
-                src={`${url}${src.ruta}`}
-                alt={src.nombre}
-                fill
-                priority={idx === 0}
-                sizes="(max-width: 768px) 100vh, 100vw"
-                className={`object-cover transition-transform duration-10000 ease-out ${
-                  idx === currentIndex ? "scale-110" : "scale-100"
-                }`}
+                src="/risun_logo2.png"
+                width={500}
+                height={80}
+                sizes="(max-width:640px) 220px, (max-width:1024px) 320px, 500px"
+                className="drop-shadow-lg w-[220px] sm:w-[320px] lg:w-[500px] h-auto"
+                priority
+                alt="Risun Peru Travel"
               />
-            </div>
-            {/*logo y panel de información*/}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center ml-2 md:ml-10 text-white px-4 ">
-              <span className="flex items-center space-x-2">
-                <Image
-                  src="/risun_logo2.png"
-                  width={500}
-                  height={80}
-                  sizes="(max-width: 640px) 230px, (max-width: 1024px) 300px, 500px"
-                  className="drop-shadow-xs drop-shadow-blue-100 w-[230px] sm:w-[300px] lg:w-[500px] h-auto object-contain"
-                  priority
-                  fetchPriority="high"
-                  alt="risun peru travel agencia de cusco"
-                />
-              </span>
-              {/* Panel de información */}
-              <div className="mt-5 w-[95%] md:w-3/4 lg:w-2/3">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                  {/* 1) Operador */}
-                  <div className="rounded-2xl bg-white/60 shadow-lg backdrop-blur-lg px-4 py-3 flex items-center justify-center gap-3">
-                    <div className="min-w-0">
-                      <div className="flex items-center justify-center gap-2">
-                        <div className="rounded-xl bg-black/5 p-2">
-                          <GroupIcon className="w-7 h-7" />
-                        </div>
-                      </div>
-                      <p className="mt-2 text-2xl md:text-xl font-extrabold text-gray-700 leading-none">
-                        {dict.operador}
-                      </p>
+
+              {/* PANEL INFO */}
+              <div className="mt-6 w-full max-w-5xl">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                  {/* CARD */}
+                  <div className="rounded-2xl bg-white/80 backdrop-blur px-4 py-3">
+                    <div className="inline-flex items-center justify-center rounded-xl bg-black/5 p-2 mx-auto">
+                      <GroupIcon className="w-7 h-7 text-[#047B3E]" />
                     </div>
+                    <p className="mt-2 text-lg font-extrabold text-gray-800">
+                      {dict.operador}
+                    </p>
                   </div>
 
-                  {/* 2) Operaciones + estrellas */}
-                  <div className="rounded-2xl bg-white/60 shadow-lg backdrop-blur-lg px-4 py-3 ">
-                    <div className="n flex items-center justify-center">
-                      <div className="rounded-xl bg-black/5 p-2">
-                        <div className="flex items-center gap-0.5 ">
-                          {[...Array(5)].map((_, i) => (
-                            <StarInternoIcon
-                              key={i}
-                              className="w-7 h-7 text-[#fff]"
-                            />
-                          ))}
-                        </div>
+                  <div className="rounded-2xl bg-white/80 backdrop-blur px-4 py-3">
+                    <div className="inline-flex items-center justify-center rounded-xl bg-black/5 p-2 mx-auto">
+                      <div className="flex items-center justify-center gap-0.5 ">
+                        {[...Array(5)].map((_, i) => (
+                          <StarInternoIcon
+                            key={i}
+                            className="w-7 h-7 text-[#047B3E]"
+                          />
+                        ))}
                       </div>
                     </div>
-
-                    <p className="mt-2 text-2xl md:text-3xl font-extrabold text-gray-900 leading-none">
+                    <p className="mt-1 text-2xl font-extrabold text-gray-900">
                       +1000
                     </p>
-                    <p className="text-xs md:text-sm font-semibold text-gray-700">
+                    <p className="text-xs font-semibold text-gray-600">
                       Operaciones
                     </p>
                   </div>
 
-                  {/* 3) Medida */}
-                  <div className="rounded-2xl bg-white/60 shadow-lg backdrop-blur-lg px-4 py-3 flex items-center justify-center gap-3">
-                    <div className="min-w-0">
-                      <div className="flex items-center justify-center gap-2">
-                        <div className="rounded-xl bg-black/5 p-2">
-                          <TravelIcon className="w-7 h-7" />
-                        </div>
-                      </div>
-                      <p className="mt-2 text-2xl md:text-xl font-extrabold text-gray-700 leading-none">
-                        {dict.medida}
-                      </p>
-                      <p className="mt-2 text-2xl md:text-xl font-extrabold text-gray-900 leading-none">
-                        ------------------
-                      </p>
+                  <div className="rounded-2xl bg-white/80 backdrop-blur px-4 py-3">
+                    <div className="inline-flex items-center justify-center rounded-xl bg-black/5 p-2 mx-auto">
+                      <TravelIcon className="w-7 h-7 text-[#047B3E]" />
                     </div>
+                    <p className="mt-2 text-lg font-extrabold text-gray-800">
+                      {dict.medida}
+                    </p>
                   </div>
 
-                  {/* 4) Opiniones */}
                   <a
                     href="#opiniones"
-                    className="rounded-2xl bg-white/60 shadow-lg backdrop-blur-lg px-4 py-3 no-underline hover:shadow-md transition"
+                    className="rounded-2xl bg-white/80 backdrop-blur px-4 py-3"
                   >
-                    <div className="flex items-center justify-center gap-2">
+                    <div className="flex justify-center gap-2">
                       <div className="rounded-xl bg-black/5 p-2">
-                        <TripAdvisorIcon className="w-7 h-7" />
+                        <TripAdvisorIcon className="w-7 h-7 text-[#047B3E]" />
                       </div>
                       <div className="rounded-xl bg-black/5 p-2">
-                        <GorGoogleIcon className="w-7 h-7" />
+                        <GorGoogleIcon className="w-7 h-7 text-[#047B3E]" />
                       </div>
                     </div>
-
-                    <p className="mt-2 text-2xl md:text-3xl font-extrabold text-gray-900 leading-none">
+                    <p className="mt-1 text-2xl font-extrabold text-gray-900">
                       4.9+
                     </p>
-                    <p className="text-xs md:text-sm font-semibold text-gray-600">
+                    <p className="text-xs font-semibold text-gray-600">
                       {dict.opiniones}
                     </p>
                   </a>
                 </div>
 
-                {/* Fila inferior (acciones) */}
-                <div className="mt-3 grid grid-cols-2 gap-3">
-                  {/* Filantropía */}
+                {/* ACCIONES */}
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <a
                     href="#filantropia"
-                    className="rounded-2xl bg-white/60 shadow-lg backdrop-blur-lg px-4 py-3 no-underline hover:shadow-md transition flex items-center justify-center gap-3"
-                    rel="noopener noreferrer"
+                    className="rounded-2xl bg-white/80 backdrop-blur px-4 py-3 flex items-center justify-center gap-3"
                   >
                     <div className="rounded-xl bg-black/5 p-2">
-                      <HelpIcon className="w-7 h-7" />
+                      <HelpIcon className="w-7 h-7 text-[#047B3E]" />
                     </div>
-                    <div>
-                      <p className="text-base md:text-lg font-extrabold text-gray-900 leading-none">
-                        {dict.ayuda}
-                      </p>
-                      <p className="text-xs md:text-sm font-semibold text-gray-600">
-                        Filantropía
-                      </p>
-                    </div>
+                    <span className="font-bold text-gray-900">
+                      {dict.ayuda}
+                    </span>
                   </a>
+
                   <a
-                    href={`https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(message)}`}
+                    href={`https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(
+                      message,
+                    )}`}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="rounded-2xl bg-[#047B3E] hover:bg-green-800 transition text-white px-4 py-3 no-underline flex items-center justify-center gap-3"
+                    className="rounded-2xl bg-[#047B3E] px-4 py-3 flex items-center justify-center gap-3 text-white font-bold"
                   >
                     <div className="rounded-xl bg-white/10 p-2">
                       <ReserIcon className="w-7 h-7 text-white" />
                     </div>
-                    <div>
-                      <p className="text-base md:text-lg font-extrabold leading-none">
-                        {dict.reserva}
-                      </p>
-                      <p className="text-xs md:text-sm font-semibold text-white/80">
-                        WhatsApp
-                      </p>
-                    </div>
+                    {dict.reserva}
                   </a>
                 </div>
               </div>
-              {/* Fin panel info */}
-            </div>
 
-            {idx === currentIndex && (
-              <div className="w-full mx-1 absolute bottom-16 left-1/2 -translate-x-1/2 flex flex-col items-center text-center space-y-3">
-                <h2 className="text-2xl md:text-4xl font-bold text-white drop-shadow-xl drop-shadow-gray-950 tracking-wide">
-                  {src.nombre}
-                </h2>
-                <Link
-                  href={`/${lang}/${src.tipo}/${src.slug}`}
-                  className="flex gap-2 px-6 py-2 mt-3 bg-white/90 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-white hover:scale-105 transition-all"
-                >
-                  <HandRightIcon color="#000" /> {dict.verMas}
-                </Link>
-              </div>
-            )}
+              {/* TITULO + CTA */}
+              {idx === currentIndex && (
+                <div className="mt-8 space-y-3">
+                  <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold drop-shadow-lg">
+                    {src.nombre}
+                  </h2>
+                  <Link
+                    href={`/${lang}/${src.tipo}/${src.slug}`}
+                    className="flex gap-2 px-6 py-2 mt-3 bg-white/90 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-white hover:scale-105 transition-all"
+                  >
+                    <HandRightIcon color="#000" /> {dict.verMas}
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         ))}
       </div>

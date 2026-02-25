@@ -220,13 +220,12 @@ const MenuDinamico = ({ dict, lang, menu }) => {
                 className="
     px-4 py-2 rounded-xl
     border-2 border-[#A30923]
-    bg-[#A30923]/5
+    bg-white
     text-[#A30923] font-semibold
     placeholder:text-[#A30923]/60
 
     focus:outline-none
     focus:ring-2 focus:ring-[#A30923]
-    focus:bg-white
     focus:shadow-md focus:shadow-[#A30923]/40
 
     transition-all duration-200

@@ -64,7 +64,7 @@ export const ClockIcon = (props) => {
    return <FiClock color={props.color || colors.group} size={props.size || 20} className={props.className} />
 }
 export const GroupIcon = (props) => {
-   return <GrGroup color={props.color || colors.group} size={props.size || 20} className={props.className} />
+   return <GrGroup  size={props.size || 20} className={props.className} />
 }
 export const UserIcon = (props) => {
    return <LuUserRound color={props.color || colors.user} size={props.size || 20} className={props.className} />
@@ -133,7 +133,7 @@ export const GoogleIcon = (props) => {
    return <FcGoogle color={props.color || colors.user} size={props.size || 20} className={props.className} />
 }
 export const TripAdvisorIcon = (props) => {
-   return <BiLogoTripAdvisor color={props.color || colors.user} size={props.size || 20} className={props.className} />
+   return <BiLogoTripAdvisor  size={props.size || 20} className={props.className} />
 }
 export const EnviarIcon = (props) => {
    return <BiMailSend color={props.color || colors.user} size={props.size || 20} className={props.className} />
