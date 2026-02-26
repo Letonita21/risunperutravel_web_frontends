@@ -89,9 +89,10 @@ const Footer = ({ dict, lang }) => {
     { nombre: "ya", dir: "/pagos/ya.png" },
   ];
   const contactos = [
-    { email: "reservas@terresdesincas.com" },
-    { email: "ventas@terresdesincas.com" },
+    { email: "rcperutravel@gmail.com" },
+    /* { email: "ventas@terresdesincas.com" },
     { email: "info@terresdesincas.com" },
+  ]; */
   ];
   return (
     <footer>

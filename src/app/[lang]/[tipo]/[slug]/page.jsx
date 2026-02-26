@@ -18,7 +18,7 @@ export async function generateMetadata(props) {
   const params = await props.params;
   const { slug, lang } = params;
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://terresdesincas.com";
+    process.env.NEXT_PUBLIC_BASE_URL || "https://risunperutravel.com";
   const imgStorage = process.env.NEXT_PUBLIC_URL;
 
   try {
@@ -106,7 +106,7 @@ const page = async ({ params }) => {
   //construccion de la estructura de datos para la pagina
   const urlImagenes = process.env.NEXT_PUBLIC_URL;
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://terresdesincas.com";
+    process.env.NEXT_PUBLIC_BASE_URL || "https://risunperutravel.com";
   const precio = parseFloat(tour.precio_enganche).toFixed(2);
   const duracion = `P${parseInt(tour.duracion) || 1}D`;
 
