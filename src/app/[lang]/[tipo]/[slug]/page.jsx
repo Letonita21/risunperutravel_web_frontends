@@ -264,7 +264,7 @@ const page = async ({ params }) => {
         <div className="absolute inset-0 bg-black/50 z-10" />
 
         {/* TEXTO */}
-        <div className="absolute inset-0 z-50 flex items-center justify-center px-4">
+        <div className="absolute inset-0 z-10 flex items-center justify-center px-4">
           <div className="max-w-5xl mx-auto text-center">
             <h1
               className="

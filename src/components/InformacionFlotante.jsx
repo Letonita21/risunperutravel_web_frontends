@@ -130,7 +130,10 @@ const InformacionFlotante = ({
   const calcularDificultad = (rango) => {
     setIntensidad(RANGOS_DIFICULTAD[rango]);
   };
-  console.log("asdas", precios);
+  const tiposPrecio = {
+    2: "Privado",
+    6: "Compartido",
+  };
 
   return (
     <div className="relative z-20 flex justify-center w-5/6">
@@ -162,21 +165,35 @@ const InformacionFlotante = ({
                 className="drop-shadow-xs drop-shadow-white"
               />
             </span>
-            <div>
-              <label htmlFor="Headline">
-                <p className="text-xs sm:text-sm font-semibold text-gray-900 -mb-1">
+            <div className="w-full sm:w-45 md:w-40">
+              <label htmlFor="Headline" className="block">
+                <p className="text-sm sm:text-base font-semibold text-gray-900 mb-1">
                   {dict.grupo}
                 </p>
+
                 <select
                   name="Headline"
                   id="Headline"
                   value={precio}
-                  className="mt-0.5 w-14 sm:w-16 font-bold rounded border-gray-300 shadow-sm text-base sm:text-lg md:text-2xl"
                   onChange={(e) => setPrecio(e.target.value)}
+                  className="
+        w-full
+        px-4 py-2.5
+        text-sm sm:text-base md:text-lg
+        font-semibold
+        rounded-xl
+        border border-gray-300
+        bg-white
+        shadow-sm
+        focus:outline-none
+        focus:ring-2 focus:ring-gray-900
+        focus:border-gray-900
+        transition-all duration-200
+      "
                 >
                   {precios.map((p, i) => (
                     <option key={i} value={p.precio}>
-                      {p.cantidad}
+                      {tiposPrecio[p.cantidad] || p.cantidad}
                     </option>
                   ))}
                 </select>
