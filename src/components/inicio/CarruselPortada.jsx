@@ -26,6 +26,7 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
     }, 10000);
     return () => clearInterval(interval);
   }, [portadaHome.length]);
+  console.log(portadaHome);
 
   return (
     <div className="relative w-full min-h-[100svh] overflow-hidden">
