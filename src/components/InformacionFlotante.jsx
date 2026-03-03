@@ -193,7 +193,7 @@ const InformacionFlotante = ({
                 >
                   {precios.map((p, i) => (
                     <option key={i} value={p.precio}>
-                      {tiposPrecio[p.cantidad] || p.cantidad}
+                      {precio.cantidad}
                     </option>
                   ))}
                 </select>
