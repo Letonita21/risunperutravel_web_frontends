@@ -239,6 +239,7 @@ const page = async ({ params }) => {
   };
 
   const lista = [lang, tour.tipo, tour.nombre];
+  console.log(urlImagenes);
   return (
     <>
       <script
