@@ -4,8 +4,8 @@ import MenuDinamico from "./MenuDinamico";
 import { getItemsMenu } from "@/lib/itemsMenu";
 
 const Navbar = async ({ dict, lang }) => {
-  const prueba = await getItemsMenu(lang).then((res) => res.json());
-  console.log("aqui estamos ", prueba);
+  /* const prueba = await getItemsMenu(lang).then((res) => res.json());
+  console.log("aqui estamos ", prueba); */
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_ADMIN_URL}/menu/prueba.php?lang=${lang}`,
     {
