@@ -71,22 +71,22 @@ const GaleriaHorizontal = ({ dict, body, lang }) => {
     {
       id: 11,
       url: "/filantropia/12.webp",
-      nombre: "Somos risun peru travel",
+      nombre: "Somos Risun Peru Travel",
     },
     {
       id: 12,
       url: "/filantropia/13.webp",
-      nombre: "Solidaridad Risun Peru Travel con",
+      nombre: "Compartiendo Raices",
     },
     {
       id: 13,
       url: "/filantropia/14.webp",
-      nombre: "Solidaridad Risun Peru Travel",
+      nombre: "Costumbres",
     },
     {
       id: 14,
-      url: "/filantropia/SOLIDARIOS-CON-TERRES-DES-INCAS.webp",
-      nombre: "Solidarios con Risun Peru Travel",
+      url: "/filantropia/15.webp",
+      nombre: "Niños jugando",
     },
   ];
 
@@ -185,7 +185,7 @@ const GaleriaHorizontal = ({ dict, body, lang }) => {
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/25 opacity-60 z-[1]" />
 
                           <Image
-                            src={`${urlImagenes}$/imagenes${card.url}`}
+                            src={`${urlImagenes}${card.url}`}
                             alt={card.nombre}
                             fill
                             sizes="(max-width: 768px) 100vw, 320px"
