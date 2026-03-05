@@ -9,7 +9,7 @@ import Link from "next/link";
 const GaleriaHorizontal = ({ dict, body, lang }) => {
   const [stopScroll, setStopScroll] = React.useState(false);
   const [tilt, setTilt] = React.useState({ x: 0, y: 0 });
-  const urlImagenes = process.env.NEXT_PUBLIC_BASE_URL;
+  const urlImagenes = process.env.NEXT_PUBLIC_URL;
   const threshold = 12;
 
   const cardData = [
