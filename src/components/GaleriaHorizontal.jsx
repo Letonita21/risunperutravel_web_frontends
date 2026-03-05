@@ -185,7 +185,7 @@ const GaleriaHorizontal = ({ dict, body, lang }) => {
                           <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/25 opacity-60 z-[1]" />
 
                           <Image
-                            src={`${urlImagenes}${card.url}`}
+                            src={`${urlImagenes}$/imagenes${card.url}`}
                             alt={card.nombre}
                             fill
                             sizes="(max-width: 768px) 100vw, 320px"
