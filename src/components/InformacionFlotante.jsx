@@ -137,174 +137,160 @@ const InformacionFlotante = ({
 
   return (
     <div className="relative z-20 flex justify-center w-5/6">
-      <div className="-mt-25 md:-mt-20 lg:-mt-24 w-full rounded-br-2xl rounded-tl-2xl bg-white/40 shadow-lg backdrop-blur-lg ring-1 ring-black/80">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 md:items-center divide-y sm:divide-y-0 md:divide-x divide-gray-300">
-          <div className="flex items-center gap-1 px-2 py-3">
-            <span className="inline-flex items-center justify-center rounded-lg">
-              <DolarIcon
-                size={38}
-                color={"#B04F00"}
-                className="drop-shadow-xs drop-shadow-white"
-              />
-            </span>
+      <div
+        className="
+    -mt-26
+    w-full
+    rounded-2xl
+    bg-white/60
+    backdrop-blur-xl
+    shadow-xl
+    ring-1 ring-black/10
+  "
+      >
+        <div
+          className="
+      grid
+      grid-cols-2
+      md:grid-cols-3
+      lg:grid-cols-6
+      divide-y
+      md:divide-y-0
+      md:divide-x
+      divide-gray-200
+    "
+        >
+          {/* PRECIO */}
+          <div className="flex items-center gap-3 px-4 py-4">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-amber-100">
+              <DolarIcon size={28} color="#B04F00" />
+            </div>
+
             <div>
-              <p className="text-xs sm:text-sm font-semibold text-gray-900 -mb-1">
-                {dict.precio}(pp):
+              <p className="text-xs text-[#A30923] font-semibold">
+                {dict.precio} (pp)
               </p>
-              <p className="text-base sm:text-lg md:text-3xl drop-shadow-xs drop-shadow-green-400 font-bold uppercase tracking-wide text-black">
+
+              <p className="text-xl md:text-2xl font-bold text-gray-900">
                 ${precio}
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 px-2 py-3">
-            <span className="inline-flex items-center justify-center rounded-lg">
-              <GroupIcon
-                size={38}
-                color={"#B04F00"}
-                className="drop-shadow-xs drop-shadow-white"
-              />
-            </span>
-            <div className="w-full sm:w-45 md:w-40">
-              <label htmlFor="Headline" className="block">
-                <p className="text-sm sm:text-base font-semibold text-gray-900 mb-1">
-                  {dict.grupo}
-                </p>
+          {/* GRUPO */}
+          <div className="flex items-center gap-3 px-4 py-4">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-amber-100">
+              <GroupIcon size={28} color="#B04F00" />
+            </div>
 
-                <select
-                  name="Headline"
-                  id="Headline"
-                  value={precio}
-                  onChange={(e) => setPrecio(e.target.value)}
-                  className="
-        w-full
-        px-4 py-2.5
-        text-sm sm:text-base md:text-lg
-        font-semibold
-        rounded-xl
-        border border-gray-300
-        bg-white
-        shadow-sm
-        focus:outline-none
-        focus:ring-2 focus:ring-gray-900
-        focus:border-gray-900
-        transition-all duration-200
-      "
-                >
-                  {precios.map((p, i) => (
-                    <option key={i} value={p.precio}>
-                      {tiposPrecio[p.cantidad] || p.cantidad}
-                    </option>
-                  ))}
-                </select>
-              </label>
+            <div className="w-full">
+              <p className="text-xs text-[#A30923] font-semibold mb-1">
+                {dict.grupo}
+              </p>
+
+              <select
+                value={precio}
+                onChange={(e) => setPrecio(e.target.value)}
+                className="
+              w-full
+              text-sm
+              font-semibold
+              rounded-lg
+              border
+              border-gray-200
+              bg-white
+              px-3
+              py-1.5
+              focus:ring-2
+              focus:ring-amber-500
+              outline-none
+            "
+              >
+                {precios.map((p, i) => (
+                  <option key={i} value={p.precio}>
+                    {tiposPrecio[p.cantidad] || p.cantidad}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
 
-          <div className="flex items-center gap-1 px-2 py-3">
-            <span className="inline-flex items-center justify-center rounded-lg">
-              <LugarIcon
-                size={38}
-                color={"#B04F00"}
-                className="drop-shadow-xs drop-shadow-white"
-              />
-            </span>
+          {/* UBICACION */}
+          <div className="flex items-center gap-3 px-4 py-4">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-amber-100">
+              <LugarIcon size={28} color="#B04F00" />
+            </div>
+
             <div>
-              <p className="text-xs sm:text-sm font-semibold text-gray-900 -mb-1">
+              <p className="text-xs text-[#A30923] font-semibold">
                 {dict.ubicacion}
               </p>
-              <p className="text-sm sm:text-base md:text-2xl font-bold uppercase tracking-wide text-gray-900">
-                {departamento}
-              </p>
+
+              <p className="text-lg font-bold text-gray-900">{departamento}</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-1 px-2 py-3">
-            <span className="inline-flex items-center justify-center rounded-lg">
-              <ClockIcon
-                size={38}
-                color={"#B04F00"}
-                className="drop-shadow-xs drop-shadow-white"
-              />
-            </span>
+          {/* DURACION */}
+          <div className="flex items-center gap-3 px-4 py-4">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-amber-100">
+              <ClockIcon size={28} color="#B04F00" />
+            </div>
+
             <div>
-              <p className="text-xs sm:text-sm font-semibold text-gray-900 -mb-1">
+              <p className="text-xs text-[#A30923] font-semibold">
                 {dict.duracion}
               </p>
-              <p className="text-base sm:text-lg md:text-2xl font-bold tracking-wide text-gray-900">
+
+              <p className="text-lg font-bold text-gray-900">
                 {duracion} {duracion > "1" ? dict.dias : dict.dia}
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-1 px-2 py-3">
-            <span className="inline-flex items-center justify-center rounded-lg">
-              <MountainIcon
-                size={38}
-                color={"#B04F00"}
-                className="drop-shadow-xs drop-shadow-white"
-              />
-            </span>
+          {/* ALTURA */}
+          <div className="flex items-start gap-3 px-4 py-4">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-amber-100">
+              <MountainIcon size={28} color="#B04F00" />
+            </div>
+
             <div>
-              <p className="text-xs sm:text-sm font-semibold text-gray-900 -mb-1">
-                {dict.altura}({picos})
+              <p className="text-xs text-[#A30923] font-semibold">
+                {dict.altura} ({picos})
               </p>
-              <p
-                className={`text-[14px] sm:text-md md:text-lg font-bold tracking-wide ${altura.textoColor}`}
-              >
+
+              <p className={`text-sm font-bold ${altura.textoColor}`}>
                 {altura.rango}
               </p>
-              <div className="relative w-full">
-                <div className="w-24 sm:w-28 xl:w-34 h-2.5 bg-gray-300 rounded-full overflow-hidden inner-shadow">
-                  <div
-                    className={`h-full rounded-full transition-all duration-1000 ease-out ${altura.colorBarra}`}
-                    style={{ width: altura.porcentaje }}
-                  >
-                    <div className="w-full h-full opacity-20 bg-white animate-pulse"></div>
-                  </div>
-                </div>
-                <div className="flex justify-between text-[10px] text-gray-700 mt-1 font-medium px-1">
-                  <span>0m</span>
-                  <span>3000m</span>
-                  <span>+6000m</span>
-                </div>
+
+              <div className="w-24 h-2 mt-1 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className={`h-full ${altura.colorBarra}`}
+                  style={{ width: altura.porcentaje }}
+                />
               </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-1 px-2 py-3">
-            <span className="inline-flex items-center justify-center rounded-lg">
-              <ShoeIcon
-                size={38}
-                color={"#B04F00"}
-                className="drop-shadow-xs drop-shadow-white"
-              />
-            </span>
+          {/* DIFICULTAD */}
+          <div className="flex items-start gap-3 px-4 py-4">
+            <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-amber-100">
+              <ShoeIcon size={28} color="#B04F00" />
+            </div>
+
             <div>
-              <p className="text-xs sm:text-sm font-semibold text-gray-900 -mb-1">
-                {dict.dificultad}({dificultad})
+              <p className="text-xs text-[#A30923] font-semibold">
+                {dict.dificultad} ({dificultad})
               </p>
-              <p
-                className={`text-base sm:text-lg md:text-xl font-bold tracking-wide ${intensidad.textoColor}`}
-              >
+
+              <p className={`text-sm font-bold ${intensidad.textoColor}`}>
                 {intensidad.nivel}
               </p>
-              <div className="relative w-full group">
-                <div className="w-24 md:w-30 h-2.5 bg-gray-300 rounded-full overflow-hidden shadow-inner">
-                  <div
-                    className={`h-full rounded-full transition-all duration-1000 ease-out flex items-center justify-end pr-1 ${intensidad.colorBarra}`}
-                    style={{ width: intensidad.porcentaje }}
-                  >
-                    <div className="w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/diagonal-stripes.png')]"></div>
-                  </div>
-                </div>
 
-                {/* Escala visual abajo */}
-                <div className="flex justify-between text-[10px] text-gray-700 mt-1 font-medium px-1 select-none">
-                  <span>Relax</span>
-                  <span>Aventura</span>
-                  <span>Reto</span>
-                </div>
+              <div className="w-24 h-2 mt-1 bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className={`h-full ${intensidad.colorBarra}`}
+                  style={{ width: intensidad.porcentaje }}
+                />
               </div>
             </div>
           </div>
