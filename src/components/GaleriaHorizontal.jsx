@@ -15,72 +15,72 @@ const GaleriaHorizontal = ({ dict, body, lang }) => {
   const cardData = [
     {
       id: 0,
-      url: "/filantropia/AYUDA-A-LA-NINES-TERRES-DES-INCA.webp",
+      url: "/filantropia/1.webp",
       nombre: "Ayuda a las niñas Risun Peru Travel",
     },
     {
       id: 1,
-      url: "/filantropia/AYUDANOS-A-AYUDAR.webp",
+      url: "/filantropia/2.webp",
       nombre: "Ayudanos a ayudar",
     },
     {
       id: 2,
-      url: "/filantropia/AYUDANOS-A-EDUCAR.webp",
+      url: "/filantropia/3.webp",
       nombre: "Ayudanos a educar",
     },
     {
       id: 3,
-      url: "/filantropia/COMPARTIR-EN-NAVIDAD.webp",
+      url: "/filantropia/4.webp",
       nombre: "Compartir en Navidad",
     },
     {
       id: 4,
-      url: "/filantropia/CONOCIENDO-NUESTRA-CULTURA.webp",
+      url: "/filantropia/5.webp",
       nombre: "Conociendo nuestra cultura",
     },
     {
       id: 5,
-      url: "/filantropia/LLEVANDO-ALEGRIA.webp",
+      url: "/filantropia/6.webp",
       nombre: "Llevando alegría",
     },
     {
       id: 6,
-      url: "/filantropia/MEJORANDO-VIDAS.webp",
+      url: "/filantropia/7.webp",
       nombre: "Mejorando vidas",
     },
     {
       id: 7,
-      url: "/filantropia/NAVIDAD-DE-LO-NINOS.webp",
+      url: "/filantropia/8.webp",
       nombre: "Navidad de lo niños",
     },
     {
       id: 8,
-      url: "/filantropia/POR-MAS-NINOS-FELICES.webp",
+      url: "/filantropia/9.webp",
       nombre: "Por mas niños felices",
     },
     {
       id: 9,
-      url: "/filantropia/POR-UNA-MEJOR-NAVIDAD.webp",
+      url: "/filantropia/10.webp",
       nombre: "Por una mejor Navidad",
     },
     {
       id: 10,
-      url: "/filantropia/SOLIDARIDAD-TERRES-DES-INCAS-20.webp",
+      url: "/filantropia/11.webp",
       nombre: "Solidaridad Risun Peru Travel 20",
     },
     {
       id: 11,
-      url: "/filantropia/SOLIDARIDAD-TERRES-DES-INCAS-202.webp",
+      url: "/filantropia/12.webp",
       nombre: "Solidaridad Risun Peru Travel 202",
     },
     {
       id: 12,
-      url: "/filantropia/SOLIDARIDAD-TERRES-DES-INCAS-CON.webp",
+      url: "/filantropia/13.webp",
       nombre: "Solidaridad Risun Peru Travel con",
     },
     {
       id: 13,
-      url: "/filantropia/SOLIDARIDAD-TERRES-DES-INCAS.webp",
+      url: "/filantropia/14.webp",
       nombre: "Solidaridad Risun Peru Travel",
     },
     {

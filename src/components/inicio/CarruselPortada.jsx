@@ -59,10 +59,12 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
               {/* LOGO */}
               <Image
                 src="/risun_logo2.png"
-                width={500}
-                height={80}
-                sizes="(max-width:640px) 220px, (max-width:1024px) 320px, 500px"
-                className="drop-shadow-lg w-[220px] sm:w-[320px] lg:w-[500px] h-auto"
+                width={600}
+                height={100}
+                sizes="(max-width:640px) 240px, (max-width:1024px) 360px, 600px"
+                className="w-[240px] sm:w-[360px] lg:w-[600px] h-auto
+           drop-shadow-[0_0_25px_rgba(255,255,255,0.9)]
+           brightness-110 contrast-110"
                 priority
                 alt="Risun Peru Travel"
               />
