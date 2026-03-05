@@ -16,7 +16,7 @@ const GaleriaHorizontal = ({ dict, body, lang }) => {
     {
       id: 0,
       url: "/filantropia/1.webp",
-      nombre: "Ayuda a las niñas Risun Peru Travel",
+      nombre: "Paseo Risun Peru Travel",
     },
     {
       id: 1,
@@ -31,7 +31,7 @@ const GaleriaHorizontal = ({ dict, body, lang }) => {
     {
       id: 3,
       url: "/filantropia/4.webp",
-      nombre: "Compartir en Navidad",
+      nombre: "Niños en el valle",
     },
     {
       id: 4,
@@ -41,17 +41,17 @@ const GaleriaHorizontal = ({ dict, body, lang }) => {
     {
       id: 5,
       url: "/filantropia/6.webp",
-      nombre: "Llevando alegría",
+      nombre: "Paseo con los niños",
     },
     {
       id: 6,
       url: "/filantropia/7.webp",
-      nombre: "Mejorando vidas",
+      nombre: "Compartiendo raices",
     },
     {
       id: 7,
       url: "/filantropia/8.webp",
-      nombre: "Navidad de lo niños",
+      nombre: "Conociendo nuestra cultura",
     },
     {
       id: 8,
@@ -61,17 +61,17 @@ const GaleriaHorizontal = ({ dict, body, lang }) => {
     {
       id: 9,
       url: "/filantropia/10.webp",
-      nombre: "Por una mejor Navidad",
+      nombre: "Nuestra Cultura",
     },
     {
       id: 10,
       url: "/filantropia/11.webp",
-      nombre: "Solidaridad Risun Peru Travel 20",
+      nombre: "Solidaridad Risun Peru Travel",
     },
     {
       id: 11,
       url: "/filantropia/12.webp",
-      nombre: "Solidaridad Risun Peru Travel 202",
+      nombre: "Somos risun peru travel",
     },
     {
       id: 12,
