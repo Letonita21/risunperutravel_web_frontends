@@ -89,8 +89,6 @@ const ImperdiblesCusco = async ({ dict, lang }) => {
   ];
 
   const cards = dataInit.map((data) => {
-    console.log("aqui somos", imperdibles);
-
     const match = imperdibles.find((item) => item.id === data.id);
     return match
       ? {
