@@ -12,7 +12,7 @@ const ImperdiblesCusco = async ({ dict, lang }) => {
     dict.imperdibles?.valleSagrado?.id,
     dict.imperdibles?.cityTour?.id,
     dict.imperdibles?.sieteLagunas?.id,
-  ];
+  ].filter(Boolean);
   //const imperdibles = await getImperdibles(ids);
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_ADMIN_URL}/portada/inperdibles.php?ids=${ids.join(",")}`,
