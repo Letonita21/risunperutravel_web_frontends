@@ -6,7 +6,7 @@ import { getImperdibles } from "@/lib/infoPortada";
 
 const ImperdiblesCusco = async ({ dict, lang }) => {
   const ids = [
-    dict.imperdibles.machupicchu.id,
+    dict.imperdibles.quelccaya.id,
     dict.imperdibles.colores.id,
     dict.imperdibles.salineras.id,
     dict.imperdibles.valleSagrado.id,
@@ -22,12 +22,12 @@ const ImperdiblesCusco = async ({ dict, lang }) => {
   const dataInit = [
     {
       title: "",
-      description: dict.imperdibles.machupicchu.descripcion,
+      description: dict.imperdibles.quelccaya.descripcion,
       price: "",
-      image: "/imperdibles/foto-machupicchu.jpg",
+      image: "/imperdibles/quelccaya-glaciar.webp",
       picos: 0,
       zapatos: 0,
-      id: dict.imperdibles.machupicchu.id,
+      id: dict.imperdibles.quelccaya.id,
       slug: "",
       tipo: "",
     },
@@ -35,7 +35,7 @@ const ImperdiblesCusco = async ({ dict, lang }) => {
       title: "",
       description: dict.imperdibles.colores.descripcion,
       price: "",
-      image: "/imperdibles/montana-de-colores.webp",
+      image: "/imperdibles/cerro-7-colores.webp",
       picos: 0,
       zapatos: 0,
       id: dict.imperdibles.colores.id,
@@ -46,7 +46,7 @@ const ImperdiblesCusco = async ({ dict, lang }) => {
       title: "",
       description: dict.imperdibles.salineras.descripcion,
       price: "",
-      image: "/imperdibles/maras.webp",
+      image: "/imperdibles/maras-moray.webp",
       picos: 0,
       zapatos: 0,
       id: dict.imperdibles.salineras.id,
@@ -57,7 +57,7 @@ const ImperdiblesCusco = async ({ dict, lang }) => {
       title: "",
       description: dict.imperdibles.valleSagrado.descripcion,
       price: "",
-      image: "/imperdibles/valle-sagrado-incas.webp",
+      image: "/imperdibles/ruinas-de-ollantaytambo.webp",
       picos: 0,
       zapatos: 0,
       id: dict.imperdibles.valleSagrado.id,
@@ -68,7 +68,7 @@ const ImperdiblesCusco = async ({ dict, lang }) => {
       title: "",
       description: dict.imperdibles.cityTour.descripcion,
       price: "",
-      image: "/imperdibles/citytour-cusco.webp",
+      image: "/imperdibles/city-tour.webp",
       picos: 0,
       zapatos: 0,
       id: dict.imperdibles.cityTour.id,
@@ -79,7 +79,7 @@ const ImperdiblesCusco = async ({ dict, lang }) => {
       title: "",
       description: dict.imperdibles.sieteLagunas.descripcion,
       price: "",
-      image: "/imperdibles/7-lagunas-de-ausangate.webp",
+      image: "/imperdibles/7-lagunas-ausangate.webp",
       picos: 0,
       zapatos: 0,
       id: dict.imperdibles.sieteLagunas.id,
@@ -89,6 +89,8 @@ const ImperdiblesCusco = async ({ dict, lang }) => {
   ];
 
   const cards = dataInit.map((data) => {
+    console.log("aqui somos", imperdibles);
+
     const match = imperdibles.find((item) => item.id === data.id);
     return match
       ? {

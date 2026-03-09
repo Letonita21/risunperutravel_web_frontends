@@ -82,7 +82,7 @@ const Cardrisun = ({
               transition
             "
           >
-            Ver detalles
+            {masDetalles}
           </Link>
         </div>
       </div>

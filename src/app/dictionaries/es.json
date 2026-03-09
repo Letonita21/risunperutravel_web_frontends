@@ -61,34 +61,34 @@
             }
         },
         "imperdibles": {
-            "machupicchu": {
-                "id": 195,
-                "descripcion": "Descubre la maravilla del mundo y vive la magia de la ciudadela sagrada de los Incas."
+            "quelccaya": {
+                "id": 21,
+                "descripcion": "Aventura al glaciar tropical Quelccaya con caminata, paisajes andinos, lagunas cristalinas y cultura local inolvidable auténtica."
             },
             "colores": {
-                "id": 22,
-                "descripcion": "Atrévete a conquistar el arcoíris de los Andes y contempla un paisaje único en el mundo."
+                "id": 14,
+                "descripcion": "Aventura a la Montaña de Colores con caminata, alpacas, vistas del Ausangate y la magia de viajar"
             },
             "salineras": {
-                "id": 26,
-                "descripcion": "Descubre las impresionantes salineras de Maras, un paisaje único de miles de pozos blancos que brillan bajo el sol andino."
+                "id": 24,
+                "descripcion": "Explora Moray, laboratorio agrícola inca, y las Salineras de Maras con paisajes andinos y tradición ancestral viva."
             },
             "valleSagrado": {
-                "id": 23,
-                "descripcion": "Viaja al corazón de los Andes y descubre pueblos ancestrales, cultura viva y paisajes espectaculares."
+                "id": 10,
+                "descripcion": "Descubre Pisac, Urubamba, Ollantaytambo y Chinchero en el Valle Sagrado con historia, arquitectura y cultura andina viva."
             },
             "cityTour": {
-                "id": 15,
-                "descripcion": "Explora la ciudad imperial, sus calles, templos y rincones llenos de historia y leyenda."
+                "id": 11,
+                "descripcion": "Descubre Qoricancha, Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay en un recorrido histórico por Cusco ancestral."
             },
             "sieteLagunas": {
-                "id": 14,
-                "descripcion": "Embárcate en una travesía mágica por las lagunas multicolor al pie del nevado Ausangate."
+                "id": 22,
+                "descripcion": "Trekking a las 7 Lagunas del Ausangate con paisajes andinos, lagunas turquesa y vistas de montaña."
             }
         },
         "dia1": "1 día",
         "duracion": "Duración",
-        "masDetalles": "Conoce más detalles",
+        "masDetalles": "Ver detalles",
         "descripcionImperdibles": "<p>Explora la riqueza cultural y natural de Perú con <strong>RISUNPERUTRAVEL</strong>. Desde la costa hasta la selva, Lima, Ica, Huaraz, Arequipa, Puno Y Cusco.</p>",
         "nombreImperdibles": "Paquetes Turísticos",
         "caminatas": {
