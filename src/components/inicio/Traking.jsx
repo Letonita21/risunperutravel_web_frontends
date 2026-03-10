@@ -126,6 +126,7 @@ const Traking = async ({ dict, lang }) => {
     justify-items-center
   "
       >
+        {/* seccion cards */}
         {cards.map((card, index) => (
           <Transition
             as="div"

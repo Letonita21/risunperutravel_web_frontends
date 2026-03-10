@@ -6,13 +6,13 @@ import { getImperdibles } from "@/lib/infoPortada";
 
 const ImperdiblesCusco = async ({ dict, lang }) => {
   const ids = [
-    dict.imperdibles?.quelccaya?.id,
-    dict.imperdibles?.colores?.id,
-    dict.imperdibles?.salineras?.id,
-    dict.imperdibles?.valleSagrado?.id,
-    dict.imperdibles?.cityTour?.id,
-    dict.imperdibles?.sieteLagunas?.id,
-  ].filter(Boolean);
+    dict.imperdibles.quelccaya.id,
+    dict.imperdibles.colores.id,
+    dict.imperdibles.salineras.id,
+    dict.imperdibles.valleSagrado.id,
+    dict.imperdibles.cityTour.id,
+    dict.imperdibles.sieteLagunas.id,
+  ];
   //const imperdibles = await getImperdibles(ids);
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_ADMIN_URL}/portada/inperdibles.php?ids=${ids.join(",")}`,
