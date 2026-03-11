@@ -52,32 +52,34 @@
       "id3": { "id": 24 },
       "id4": { "id": 49 }
     },
-    "imperdibles": {
-      "machupicchu": {
-        "id": 195,
-        "descripcion": "Discover the world wonder and feel the magic of the Incas’ sacred citadel."
-      },
-      "colores": {
-        "id": 22,
-        "descripcion": "Dare to conquer the Andes’ rainbow and witness a landscape unique in the world."
-      },
-      "salineras": {
-        "id": 26,
-        "descripcion": "Discover the impressive Maras salt mines, a unique landscape of thousands of white pools shining under the Andean sun."
-      },
-      "valleSagrado": {
-        "id": 23,
-        "descripcion": "Travel to the heart of the Andes and discover ancestral towns, living culture, and breathtaking landscapes."
-      },
-      "cityTour": {
-        "id": 15,
-        "descripcion": "Explore the imperial city—its streets, temples, and corners full of history and legend."
-      },
-      "sieteLagunas": {
-        "id": 14,
-        "descripcion": "Embark on a magical journey through multicolored lagoons at the foot of the Ausangate snow-capped mountain."
-      }
+    
+  "imperdibles": {
+    "quelccaya": {
+      "id": 31,
+      "descripcion": "Adventure to the Quelccaya tropical glacier with hiking, stunning Andean landscapes, crystal-clear lagoons, and authentic local culture."
     },
+    "colores": {
+      "id": 35,
+      "descripcion": "Hike the breathtaking Rainbow Mountain, encounter alpacas, enjoy views of Ausangate, and experience the magic of the Andes."
+    },
+    "salineras": {
+      "id": 33,
+      "descripcion": "Explore Moray, the Inca agricultural laboratory, and the Maras Salt Mines with spectacular Andean landscapes and living ancestral traditions."
+    },
+    "valleSagrado": {
+      "id": 38,
+      "descripcion": "Discover Pisac, Urubamba, Ollantaytambo, and Chinchero in the Sacred Valley, experiencing history, architecture, and vibrant Andean culture."
+    },
+    "cityTour": {
+      "id": 29,
+      "descripcion": "Visit Qoricancha, Sacsayhuamán, Qenqo, Puka Pukara, and Tambomachay on a historical tour of ancestral Cusco."
+    },
+    "sieteLagunas": {
+      "id": 25,
+      "descripcion": "Trek to the 7 Lagoons of Ausangate, enjoying turquoise lakes, majestic mountains, and breathtaking Andean scenery."
+    }
+  },
+
     "dia1": "1 day",
     "duracion": "Duration",
     "masDetalles": "Learn more details",
@@ -85,7 +87,7 @@
     "nombreImperdibles": "Tour Packages",
     "caminatas": {
       "salkantay": {
-        "id": 49,
+        "id": 25,
         "descripcion": "One of the most challenging and beautiful routes to Machu Picchu, surrounded by glaciers, turquoise lagoons, and stunning scenery."
       },
       "caminoInca": {
