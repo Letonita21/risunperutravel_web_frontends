@@ -86,31 +86,31 @@
     "descripcionImperdibles": "<p>Explore Peru’s cultural and natural wealth with <strong>RISUNPERUTRAVEL</strong>. From the coast to the rainforest: Lima, Ica, Huaraz, Arequipa, Puno, and Cusco.</p>",
     "nombreImperdibles": "Tour Packages",
     "caminatas": {
-      "salkantay": {
-        "id": 25,
-        "descripcion": "One of the most challenging and beautiful routes to Machu Picchu, surrounded by glaciers, turquoise lagoons, and stunning scenery."
-      },
-      "caminoInca": {
-        "id": 104,
-        "descripcion": "The most famous and iconic route to Machu Picchu, blending history, culture, and nature in every step."
-      },
-      "choquequirao": {
-        "id": 31,
-        "descripcion": "Explore Machu Picchu’s ‘sacred sister’, a majestic archaeological site surrounded by mountains and mystery."
-      },
-      "huchuyQosqo": {
-        "id": 25,
-        "descripcion": "A short trail full of history, connecting Inca ruins with magical views of the Sacred Valley."
-      },
-      "ausangate": {
-        "id": 29,
-        "descripcion": "High-altitude adventure with towering snow peaks, colorful lagoons, and the iconic Rainbow Mountain."
-      },
-      "lares": {
-        "id": 71,
-        "descripcion": "A cultural and natural trek where you’ll meet living Andean communities, enjoy hot springs, and admire unique landscapes."
-      }
-    },
+            "caminoInca2d": {
+                "id": 7,
+                "descripcion": "Una de las rutas más desafiantes y bellas hacia Machu Picchu, rodeada de glaciares, lagunas turquesa y paisajes de impacto."
+            },
+            "caminoInca4d": {
+                "id": 6,
+                "descripcion": "La ruta más famosa y emblemática hacia Machu Picchu, mezcla de historia, cultura y naturaleza en cada paso."
+            },
+            "palcoyo": {
+                "id": 16,
+                "descripcion": "Explora la ‘hermana sagrada’ de Machu Picchu, un sitio arqueológico majestuoso rodeado de montañas y misterio."
+            },
+            "wacrapucara": {
+                "id": 17,
+                "descripcion": "Un sendero corto pero lleno de historia, que conecta con ruinas incas y paisajes mágicos del Valle Sagrado."
+            },
+            "vallesagrado": {
+                "id": 10,
+                "descripcion": "Aventura en las alturas andinas con nevados imponentes, lagunas de colores y la icónica montaña de los Siete Colores."
+            },
+            "humantay": {
+                "id": 13,
+                "descripcion": "Una caminata cultural y natural, donde conocerás comunidades andinas vivas, aguas termales y paisajes únicos."
+            }
+        },
     "nombreCaminatas": "Trekking in Cusco",
     "descripcionCaminatas": "<p>Explore Cusco’s most impressive treks: from the legendary Inca Trail to the challenging Salkantay route. Discover the grandeur of Choquequirao, the history of Huchuy Qosqo, and the magic of Ausangate and Lares. Each hike connects you with unique landscapes and the living essence of the Andes.</p>",
     "mejorPeru": {

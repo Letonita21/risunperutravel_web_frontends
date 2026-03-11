@@ -93,29 +93,29 @@
         "descripcionImperdibles": "<p>Explora la riqueza cultural y natural de Perú con <strong>RISUNPERUTRAVEL</strong>. Desde la costa hasta la selva, Lima, Ica, Huaraz, Arequipa, Puno Y Cusco.</p>",
         "nombreImperdibles": "Paquetes Turísticos",
         "caminatas": {
-            "salkantay": {
-                "id": 49,
-                "descripcion": "Una de las rutas más desafiantes y bellas hacia Machu Picchu, rodeada de glaciares, lagunas turquesa y paisajes de impacto."
+            "caminoInca2d": {
+                "id": 7,
+                "descripcion": "Camino Inca 2 días 1 noche a Machu Picchu: trekking corto desde Km 104, visita Wiñay Wayna, Inti Punku y tour guiado. Experiencia única"
             },
-            "caminoInca": {
-                "id": 104,
-                "descripcion": "La ruta más famosa y emblemática hacia Machu Picchu, mezcla de historia, cultura y naturaleza en cada paso."
+            "caminoInca4d": {
+                "id": 6,
+                "descripcion": "Camino Inca 4 días 3 noches a Machu Picchu: fabulosa ruta trekking de 42 km, paisajes andinos maravillosos, sitios incas y amanecer mágico."
             },
-            "choquequirao": {
-                "id": 31,
-                "descripcion": "Explora la ‘hermana sagrada’ de Machu Picchu, un sitio arqueológico majestuoso rodeado de montañas y misterio."
+            "palcoyo": {
+                "id": 16,
+                "descripcion": "Tour Palccoyo Montaña de Colores: fabulosa ruta andina con caminata ligera, tres montañas multicolores, bosque de piedras y paisajes espectaculares del Cusco."
             },
-            "huchuyQosqo": {
-                "id": 25,
-                "descripcion": "Un sendero corto pero lleno de historia, que conecta con ruinas incas y paisajes mágicos del Valle Sagrado."
+            "wacrapucara": {
+                "id": 17,
+                "descripcion": "Tour Waqrapukara Cusco, fabulosa ruta de aventura con caminata andina, impresionante complejo inca, vistas al Cañón del Apurímac y paisajes únicos"
             },
-            "ausangate": {
-                "id": 29,
-                "descripcion": "Aventura en las alturas andinas con nevados imponentes, lagunas de colores y la icónica montaña de los Siete Colores."
+            "vallesagrado": {
+                "id": 10,
+                "descripcion": "Tour Valle Sagrado Tradicional, maravillosa ruta cultural por Pisac, Ollantaytambo y Chinchero, historia inca, paisajes andinos y experiencia gastronómica inolvidable."
             },
-            "lares": {
-                "id": 71,
-                "descripcion": "Una caminata cultural y natural, donde conocerás comunidades andinas vivas, aguas termales y paisajes únicos."
+            "humantay": {
+                "id": 13,
+                "descripcion": "Tour Laguna Humantay: maravillosa aventura andina con caminata a laguna turquesa, vistas al nevado Humantay y paisajes naturales espectaculares del Cusco."
             }
         },
         "nombreCaminatas": "Caminatas en Cusco",
