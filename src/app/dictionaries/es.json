@@ -61,31 +61,32 @@
             }
         },
         "imperdibles": {
-            "quelccaya": {
-                "id": 21,
-                "descripcion": "Aventura al glaciar tropical Quelccaya con caminata, paisajes andinos, lagunas cristalinas y cultura local inolvidable auténtica."
-            },
-            "colores": {
-                "id": 14,
-                "descripcion": "Aventura a la Montaña de Colores con caminata, alpacas, vistas del Ausangate y la magia de viajar"
-            },
-            "salineras": {
-                "id": 24,
-                "descripcion": "Explora Moray, laboratorio agrícola inca, y las Salineras de Maras con paisajes andinos y tradición ancestral viva."
-            },
-            "valleSagrado": {
-                "id": 10,
-                "descripcion": "Descubre Pisac, Urubamba, Ollantaytambo y Chinchero en el Valle Sagrado con historia, arquitectura y cultura andina viva."
-            },
-            "cityTour": {
-                "id": 11,
-                "descripcion": "Descubre Qoricancha, Sacsayhuamán, Qenqo, Puka Pukara y Tambomachay en un recorrido histórico por Cusco ancestral."
-            },
-            "sieteLagunas": {
-                "id": 22,
-                "descripcion": "Trekking a las 7 Lagunas del Ausangate con paisajes andinos, lagunas turquesa y vistas de montaña."
-            }
-        },
+    "quelccaya": {
+        "id": 31,
+        "descripcion": "Adventure to the Quelccaya tropical glacier with hiking, Andean landscapes, crystal-clear lagoons, and authentic local culture."
+    },
+    "colores": {
+        "id": 35,
+        "descripcion": "Adventure to Rainbow Mountain with hiking, alpacas, Ausangate views, and the magic of travel."
+    },
+    "salineras": {
+        "id": 33,
+        "descripcion": "Explore Moray, the Inca agricultural laboratory, and the Maras Salt Mines with Andean landscapes and living ancestral traditions."
+    },
+    "valleSagrado": {
+        "id": 38,
+        "descripcion": "Discover Pisac, Urubamba, Ollantaytambo, and Chinchero in the Sacred Valley with history, architecture, and living Andean culture."
+    },
+    "cityTour": {
+        "id": 29,
+        "descripcion": "Discover Qoricancha, Sacsayhuamán, Qenqo, Puka Pukara, and Tambomachay on a historic tour of ancestral Cusco."
+    },
+    "sieteLagunas": {
+        "id": 25,
+        "descripcion": "Trekking to the 7 Lagoons of Ausangate with Andean landscapes, turquoise lakes, and mountain views."
+    }
+},
+
         "dia1": "1 día",
         "duracion": "Duración",
         "masDetalles": "Ver detalles",
