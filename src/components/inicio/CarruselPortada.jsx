@@ -52,10 +52,15 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
             />
 
             {/* OVERLAY */}
-            <div className="absolute inset-0 bg-black/20" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/60" />
 
-            {/* CONTENIDO (en móvil abajo, en desktop centrado) */}
-            <div className="relative z-10 flex flex-col items-center justify-end md:justify-center text-center px-4 sm:px-8 text-white min-h-[100svh] pb-14 md:pb-0">
+            {/* CONTENIDO (en móvil abajo, en desktop más abajo) */}
+            <div className="relative z-10 flex flex-col items-center justify-end text-center px-4 sm:px-8 text-white min-h-[100svh] pb-14 md:pb-24">
+              {/* CAMBIOS REALIZADOS ARRIBA:
+      1. Se eliminó 'md:justify-center' para que en PC también use 'justify-end'.
+      2. Se cambió 'md:pb-0' por 'md:pb-24' (puedes aumentar este número, ej: md:pb-32, para bajarlo más).
+  */}
+
               {/* LOGO */}
               <Image
                 src="/risun_logo2.png"
@@ -158,9 +163,7 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
 
                     {/* Reserva */}
                     <a
-                      href={`https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(
-                        message,
-                      )}`}
+                      href={`https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(message)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="rounded-2xl bg-[#047B3E] hover:bg-green-800 transition text-white px-3 py-2 md:px-4 md:py-3 no-underline flex items-center justify-center gap-2 md:gap-3"
