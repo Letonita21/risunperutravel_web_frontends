@@ -1,47 +1,67 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
-import { FaWhatsapp } from "react-icons/fa";
+import { useState } from "react";
+import { FaWhatsapp, FaTimes } from "react-icons/fa";
 import { numeroWhatsapp } from "./numero";
-const WidgetWhatsapp = () => {
-  const pathname = usePathname();
-  const [pageTitle, setPageTitle] = useState("");
-  const [idioma, setIdioma] = useState("");
-  useEffect(() => {
-    const lang = pathname.split("/")[1] || "es";
-    setIdioma(lang);
-    setPageTitle(document.title);
-  }, [pathname]);
 
-  const changeWhatsapp = async () => {
-    const form = {
-      tour: pageTitle,
-      idioma: idioma,
-    };
-    console.log("form", form);
-    try {
-      const response = await fetch("/api/consulta", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-    } catch (error) {
-      /*  console.log("error", error); */
-    }
-  };
+export default function WidgetWhatsapp() {
+  const [open, setOpen] = useState(false);
+
+  const mensaje = encodeURIComponent(
+    "Hola, quiero información sobre los tours en Cusco",
+  );
+
   return (
-    <div>
-      <a
-        className="fixed z-30 flex items-center justify-center text-white bg-green-400 rounded-full drop-shadow-md drop-shadow-gray-800 right-6 bottom-10 md:botton-20 w-18 h-18 focus:outline-none ease"
-        href={`https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent('¡Hola! Vengo de la página: "Risun Peru Travel" y quiero más información de los paquetes y tours')}`}
-        target="_blank"
-        rel="noopener"
-        aria-label="WhatsApp the Risun Peru Travel"
-        onClick={() => changeWhatsapp()}
+    <div className="fixed bottom-8 right-6 z-50">
+      {/* Panel */}
+      {open && (
+        <div className="absolute bottom-20 right-0 w-[320px] bg-white rounded-xl shadow-2xl overflow-hidden animate-fadeIn">
+          {/* Header */}
+          <div className="bg-green-500 text-white p-4 flex items-center gap-3">
+            <FaWhatsapp size={28} />
+            <div>
+              <p className="font-semibold text-lg">Iniciar una conversación</p>
+              <p className="text-sm opacity-90">
+                Haz clic para chatear por WhatsApp
+              </p>
+            </div>
+          </div>
+
+          {/* Asesor */}
+          <div className="p-4 bg-gray-50">
+            <a
+              href={`https://wa.me/${numeroWhatsapp}?text=${mensaje}`}
+              target="_blank"
+              className="flex items-center justify-between bg-white p-3 rounded-lg shadow hover:shadow-md transition"
+            >
+              <div className="flex items-center gap-3">
+                <img
+                  src="/colibri_risun.svg"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+
+                <div>
+                  <p className="font-semibold text-gray-800">
+                    Risun asesor de viajes
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Siempre atento a tus consultas
+                  </p>
+                </div>
+              </div>
+
+              <FaWhatsapp className="text-green-500" size={22} />
+            </a>
+          </div>
+        </div>
+      )}
+
+      {/* Botón flotante */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition"
       >
-        <FaWhatsapp size={45} />
-      </a>
+        {open ? <FaTimes size={28} /> : <FaWhatsapp size={32} />}
+      </button>
     </div>
   );
-};
-export default WidgetWhatsapp;
+}

@@ -87,27 +87,27 @@
     "nombreImperdibles": "Tour Packages",
     "caminatas": {
   "caminoInca2d": {
-    "id": 7,
+    "id": 27,
     "descripcion": "2-Day Inca Trail to Machu Picchu: short trek from Km 104, visit Wiñay Wayna, Inti Punku and guided tour. A unique experience."
   },
   "caminoInca4d": {
-    "id": 6,
+    "id": 28,
     "descripcion": "4-Day Inca Trail to Machu Picchu: amazing 42 km trekking route with wonderful Andean landscapes, Inca sites and a magical sunrise."
   },
   "palcoyo": {
-    "id": 16,
+    "id": 36,
     "descripcion": "Palccoyo Rainbow Mountain Tour: amazing Andean route with an easy hike, three colorful mountains, stone forest and spectacular landscapes of Cusco."
   },
   "wacrapucara": {
-    "id": 17,
+    "id": 42,
     "descripcion": "Waqrapukara Tour Cusco: amazing adventure route with an Andean hike, impressive Inca complex, views of the Apurímac Canyon and unique landscapes."
   },
   "vallesagrado": {
-    "id": 10,
+    "id": 40,
     "descripcion": "Traditional Sacred Valley Tour: wonderful cultural route through Pisac, Ollantaytambo and Chinchero, Inca history, Andean landscapes and an unforgettable gastronomic experience."
   },
   "humantay": {
-    "id": 13,
+    "id": 32,
     "descripcion": "Humantay Lake Tour: wonderful Andean adventure with a hike to a turquoise lake, views of the Humantay glacier and spectacular natural landscapes of Cusco."
   }
 },

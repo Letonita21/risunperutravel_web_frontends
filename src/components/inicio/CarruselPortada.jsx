@@ -52,7 +52,7 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
             />
 
             {/* OVERLAY */}
-            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 bg-black/20" />
 
             {/* CONTENIDO (en móvil abajo, en desktop centrado) */}
             <div className="relative z-10 flex flex-col items-center justify-end md:justify-center text-center px-4 sm:px-8 text-white min-h-[100svh] pb-14 md:pb-0">
@@ -61,10 +61,8 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
                 src="/risun_logo2.png"
                 width={600}
                 height={100}
-                sizes="(max-width:640px) 240px, (max-width:1024px) 360px, 600px"
-                className="w-[240px] sm:w-[360px] lg:w-[600px] h-auto
-           drop-shadow-[0_0_25px_rgba(255,255,255,0.9)]
-           brightness-110 contrast-110"
+                sizes="(max-width:640px) 180px, (max-width:1024px) 270px, 450px"
+                className="w-[180px] sm:w-[270px] lg:w-[450px] h-auto drop-shadow-[0_0_25px_rgba(0,0,0,0.9)] brightness-110 contrast-110"
                 priority
                 alt="Risun Peru Travel"
               />
@@ -76,7 +74,7 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
                   {/* GRID PRINCIPAL */}
                   <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-3">
                     {/* 1) Operador */}
-                    <div className="rounded-2xl bg-white/80 backdrop-blur px-3 py-2 md:px-4 md:py-3">
+                    <div className="rounded-2xl bg-white/50 backdrop-blur px-3 py-2 md:px-4 md:py-3">
                       <div className="inline-flex items-center justify-center rounded-xl bg-black/5 p-2 mx-auto">
                         <GroupIcon className="w-6 h-6 md:w-7 md:h-7 text-[#047B3E]" />
                       </div>
@@ -86,7 +84,7 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
                     </div>
 
                     {/* 2) Operaciones */}
-                    <div className="rounded-2xl bg-white/80 backdrop-blur px-3 py-2 md:px-4 md:py-3">
+                    <div className="rounded-2xl bg-white/50 backdrop-blur px-3 py-2 md:px-4 md:py-3">
                       <div className="inline-flex items-center justify-center rounded-xl bg-black/5 p-2 mx-auto">
                         <div className="flex items-center justify-center gap-0.5">
                           {[...Array(5)].map((_, i) => (
@@ -106,7 +104,7 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
                     </div>
 
                     {/* 3) Viajes a medida */}
-                    <div className="rounded-2xl bg-white/80 backdrop-blur px-3 py-2 md:px-4 md:py-3">
+                    <div className="rounded-2xl bg-white/50 backdrop-blur px-3 py-2 md:px-4 md:py-3">
                       <div className="inline-flex items-center justify-center rounded-xl bg-black/5 p-2 mx-auto">
                         <TravelIcon className="w-6 h-6 md:w-7 md:h-7 text-[#047B3E]" />
                       </div>
@@ -118,7 +116,7 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
                     {/* 4) Opiniones */}
                     <a
                       href="#opiniones"
-                      className="rounded-2xl bg-white/80 backdrop-blur px-3 py-2 md:px-4 md:py-3 no-underline hover:shadow-md transition"
+                      className="rounded-2xl bg-white/50 backdrop-blur px-3 py-2 md:px-4 md:py-3 no-underline hover:shadow-md transition"
                     >
                       <div className="flex justify-center gap-2">
                         <div className="rounded-xl bg-black/5 p-2">
@@ -142,7 +140,7 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
                     {/* Filantropía */}
                     <a
                       href="#filantropia"
-                      className="rounded-2xl bg-white/80 backdrop-blur px-3 py-2 md:px-4 md:py-3 no-underline hover:shadow-md transition flex items-center justify-center gap-2 md:gap-3"
+                      className="rounded-2xl bg-white/50 backdrop-blur px-3 py-2 md:px-4 md:py-3 no-underline hover:shadow-md transition flex items-center justify-center gap-2 md:gap-3"
                       rel="noopener noreferrer"
                     >
                       <div className="rounded-xl bg-black/5 p-2">
