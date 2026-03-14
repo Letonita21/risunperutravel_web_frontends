@@ -268,7 +268,7 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-sm mx-auto bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 space-y-2"
+      className="max-w-sm mx-auto bg-white p-2 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 space-y-2"
     >
       <div className="text-center">
         <h2 className="text-xl font-bold text-sky-950 tracking-tight">
@@ -281,7 +281,7 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
         <div>
           <label
             htmlFor="nombre"
-            className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
+            className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
           >
             {form.nombres}*
           </label>
@@ -292,19 +292,19 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
             value={formData.nombre}
             onChange={handleChange}
             required
-            className="block w-full px-3 py-2 bg-gray-50/50 border border-gray-200 rounded-lg text-sm focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 transition-all outline-none"
+            className="block w-full px-3 py-1.5 bg-gray-50/50 border border-gray-200 rounded-lg text-sm focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 transition-all outline-none"
           />
         </div>
 
         {/* País */}
         <div>
-          <label className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1">
+          <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1">
             {form.pais}*
           </label>
           <select
             value={formData.pais || ""}
             onChange={handlePais}
-            className="block w-full px-3 py-2 bg-gray-50/50 border border-gray-200 rounded-lg text-sm focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 transition-all outline-none appearance-none"
+            className="block w-full px-2 py-1.5 bg-gray-50/50 border border-gray-200 rounded-lg text-sm focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 transition-all outline-none appearance-none"
           >
             <option value="">Seleccionar</option>
             {paises.map((pais, i) => (
@@ -319,7 +319,7 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
         <div>
           <label
             htmlFor="email"
-            className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
+            className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
           >
             {form.correo}*
           </label>
@@ -330,7 +330,7 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="block w-full px-3 py-2 bg-gray-50/50 border border-gray-200 rounded-lg text-sm focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 transition-all outline-none"
+            className="block w-full px-3 py-1.5 bg-gray-50/50 border border-gray-200 rounded-lg text-sm focus:border-sky-500 focus:ring-4 focus:ring-sky-500/10 transition-all outline-none"
           />
         </div>
 
@@ -338,12 +338,12 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
         <div>
           <label
             htmlFor="numero"
-            className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
+            className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
           >
             {form.numero}*
           </label>
           <div className="flex rounded-lg border border-gray-200 overflow-hidden focus-within:border-sky-500 focus-within:ring-4 focus-within:ring-sky-500/10 transition-all">
-            <span className="bg-gray-100 px-3 py-2 text-xs font-bold text-gray-500 border-r border-gray-200 flex items-center">
+            <span className="bg-gray-100 px-3 py-1.5 text-[10px] font-bold text-gray-500 border-r border-gray-200 flex items-center">
               {codPais || "+00"}
             </span>
             <input
@@ -353,17 +353,17 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
               value={formData.numero}
               onChange={handleChange}
               required
-              className="flex-1 px-3 py-2 bg-gray-50/50 text-sm outline-none"
+              className="flex-1 px-3 py-1.5 bg-gray-50/50 text-sm outline-none"
             />
           </div>
         </div>
 
         {/* Fila Doble: Fecha y Cantidad */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-2">
           <div>
             <label
               htmlFor="fecha_llegada"
-              className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
+              className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
             >
               {form.fecha}*
             </label>
@@ -374,13 +374,13 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
               value={formData.fecha_llegada}
               onChange={handleChange}
               required
-              className="block w-full px-2 py-2 bg-gray-50/50 border border-gray-200 rounded-lg text-[13px] outline-none focus:border-sky-500 transition-all"
+              className="block w-full px-2 py-1.5 bg-gray-50/50 border border-gray-200 rounded-lg text-[12px] outline-none focus:border-sky-500 transition-all"
             />
           </div>
           <div>
             <label
               htmlFor="numero_pasajeros"
-              className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
+              className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
             >
               Cant.*
             </label>
@@ -392,32 +392,33 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
               value={formData.numero_pasajeros}
               onChange={handleChange}
               required
-              className="block w-full px-3 py-2 bg-gray-50/50 border border-gray-200 rounded-lg text-sm outline-none focus:border-sky-500 transition-all"
+              className="block w-full px-3 py-1.5 bg-gray-50/50 border border-gray-200 rounded-lg text-sm outline-none focus:border-sky-500 transition-all"
             />
           </div>
         </div>
 
-        {/* Mensaje */}
+        {/* Mensaje Corto */}
         <div>
           <label
             htmlFor="mensaje"
-            className="block text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
+            className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-1 ml-1"
           >
             {form.adicional}
           </label>
           <textarea
             name="mensaje"
             id="mensaje"
-            rows={3}
+            rows={2}
             value={formData.mensaje}
             onChange={handleChange}
             placeholder={form.mensaje}
-            className="block w-full px-3 py-2 bg-gray-50/50 border border-gray-200 rounded-lg text-sm outline-none focus:border-sky-500 transition-all resize-none"
+            className="block w-full px-3 py-1.5 bg-gray-50/50 border border-gray-200 rounded-lg text-sm outline-none focus:border-sky-500 transition-all resize-none"
           />
         </div>
       </div>
 
-      <div className="flex justify-center transform scale-[0.85] -my-2 pb-4">
+      {/* Recaptcha escalado para que no rompa el diseño */}
+      <div className="flex justify-center transform scale-[0.75] origin-center -my-3">
         <ReCAPTCHA
           ref={recaptchaRef}
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
@@ -426,9 +427,9 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
 
       <button
         type="submit"
-        className="w-full bg-sky-600 hover:bg-sky-700 active:scale-[0.97] text-white font-bold py-3 rounded-xl shadow-md shadow-sky-200 transition-all flex items-center justify-center gap-2 text-sm"
+        className="w-full bg-sky-600 hover:bg-sky-700 active:scale-[0.95] text-white font-bold py-2.5 rounded-xl shadow-md shadow-sky-100 transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-widest"
       >
-        <EnviarIcon size={18} />
+        <EnviarIcon size={16} />
         {form.enviar}
       </button>
     </form>
