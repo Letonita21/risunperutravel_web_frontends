@@ -418,7 +418,7 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
       </div>
 
       {/* Recaptcha escalado para que no rompa el diseño */}
-      <div className="flex justify-center transform scale-[0.75] origin-center -my-3">
+      <div className="flex justify-center transform scale-[0.75] origin-center -my-3 pb-2">
         <ReCAPTCHA
           ref={recaptchaRef}
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
@@ -427,7 +427,7 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
 
       <button
         type="submit"
-        className="w-full bg-sky-600 hover:bg-sky-700 active:scale-[0.95] text-white font-bold py-2.5 rounded-xl shadow-md shadow-sky-100 transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-widest"
+        className="w-full bg-sky-600 hover:bg-sky-700 active:scale-[0.95] text-white font-bold py-1.5 rounded-xl shadow-md shadow-sky-100 transition-all flex items-center justify-center gap-2 text-xs uppercase tracking-widest"
       >
         <EnviarIcon size={16} />
         {form.enviar}
