@@ -268,7 +268,7 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="max-w-sm mx-auto bg-white p-6 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 space-y-4"
+      className="max-w-sm mx-auto bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 space-y-2"
     >
       <div className="text-center">
         <h2 className="text-xl font-bold text-sky-950 tracking-tight">
@@ -408,7 +408,7 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
           <textarea
             name="mensaje"
             id="mensaje"
-            rows={5}
+            rows={3}
             value={formData.mensaje}
             onChange={handleChange}
             placeholder={form.mensaje}

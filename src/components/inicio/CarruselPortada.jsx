@@ -56,11 +56,6 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
 
             {/* CONTENIDO (en móvil abajo, en desktop más abajo) */}
             <div className="relative z-10 flex flex-col items-center justify-end text-center px-4 sm:px-8 text-white min-h-[100svh] pb-14 md:pb-24">
-              {/* CAMBIOS REALIZADOS ARRIBA:
-      1. Se eliminó 'md:justify-center' para que en PC también use 'justify-end'.
-      2. Se cambió 'md:pb-0' por 'md:pb-24' (puedes aumentar este número, ej: md:pb-32, para bajarlo más).
-  */}
-
               {/* LOGO */}
               <Image
                 src="/risun_logo2.png"
