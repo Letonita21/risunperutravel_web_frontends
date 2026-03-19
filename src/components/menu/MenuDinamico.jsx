@@ -107,7 +107,7 @@ const MenuDinamico = ({ dict, lang, menu }) => {
   };
 
   return (
-    <div className="fixed top-0 w-full z-60">
+    <div className="fixed top-0 w-full z-40">
       <div className="w-full bg-[#047B3E]">
         <div className="container mx-auto flex justify-center sm:justify-between items-center py-2 px-4">
           <div className="gap-2 hidden sm:flex">

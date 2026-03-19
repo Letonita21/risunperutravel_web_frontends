@@ -19,6 +19,7 @@ const Traking = async ({ dict, lang }) => {
     `${process.env.NEXT_PUBLIC_ADMIN_URL}/portada/caminatas.php?ids=${ids.join(",")}`,
   );
   const caminatas = await res.json();
+
   const dataInit = [
     {
       title: "",
