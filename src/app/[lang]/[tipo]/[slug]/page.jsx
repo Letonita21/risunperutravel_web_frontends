@@ -110,9 +110,13 @@ const page = async ({ params }) => {
   const precio = parseFloat(tour.precio_enganche).toFixed(2);
   const duracion = `P${parseInt(tour.duracion) || 1}D`;
 
-  const imagenAbsoluta = tour.imagen_portada.startsWith("http")
+  /* const imagenAbsoluta = tour.imagen_portada.startsWith("http")
     ? tour.imagen_portada
-    : `${urlImagenes}${tour.imagen_portada}`;
+    : `${urlImagenes}${tour.imagen_portada}`; */
+
+  const imagenAbsoluta = tour.imagen_portada?.startsWith("http")
+    ? tour.imagen_portada
+    : `${urlImagenes}${tour.imagen_portada || "default.jpg"}`;
 
   const faqEntities =
     tour.preguntas?.map((item) => ({
