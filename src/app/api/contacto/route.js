@@ -46,13 +46,41 @@ export async function POST(req) {
     }
 
     // enviar correo a personal
-    await resend.emails.send({
-      from: "Risun Peru Travel <onboarding@resend.dev>", // temporal
-      to: "risunperucorreos@risunperutravel.com", // 👉 TU correo principal
+    /*    await resend.emails.send({
+      from: `risunperucorreos@risunperutravel.com`,
       cc: "reservasrisunperutravel@gmail.com",
       bcc: "yurnero216@gmail.com",
-      reply_to: email, // 👉 aquí respondes al cliente
+      to: `${email}`,
       subject: "Solicitud de reserva",
+      text: generarMensajePlano({
+        nombre,
+        pais,
+        email,
+        numero,
+        fecha_llegada,
+        numero_pasajeros,
+        mensaje,
+        tour,
+      }),
+      html: generarMensajeHTML({
+        nombre,
+        pais,
+        email,
+        numero,
+        fecha_llegada,
+        numero_pasajeros,
+        mensaje,
+        tour,
+      }),
+    }); */
+
+    await resend.emails.send({
+      from: "Risun Peru Travel <risunperucorreos@risunperutravel.com>", // cambia cuando verifiques dominio
+      to: "risunperucorreos@risunperutravel.com", // 👉 TÚ recibes
+      cc: "reservasrisunperutravel@gmail.com",
+      bcc: "yurnero216@gmail.com",
+      reply_to: email, // 👉 respondes al cliente directo
+      subject: "Nueva solicitud de reserva",
       text: generarMensajePlano({
         nombre,
         pais,
