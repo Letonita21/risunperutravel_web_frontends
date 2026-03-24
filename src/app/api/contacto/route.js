@@ -47,11 +47,22 @@ export async function POST(req) {
 
     // enviar correo a personal
     await resend.emails.send({
-      from: `risunperucorreos@risunperutravel.com`,
-      cc: "reservasrisunperutravel@gmail.com",
-      bcc: "yurnero216@gmail.com",
-      to: `${email}`,
-      subject: "Solicitud de reserva",
+      // El remitente (tu dominio verificado en Resend)
+      from: `Risun Peru Travel <risunperucorreos@risunperutravel.com>`,
+
+      // El DESTINATARIO principal deberías ser TÚ (tu equipo de ventas)
+      to: ["reservasrisunperutravel@gmail.com"],
+
+      // Copia oculta para respaldo
+      bcc: ["yurnero216@gmail.com"],
+
+      // Si quieres que al cliente le llegue una copia de "Recibimos tu solicitud"
+      cc: [email],
+
+      // ESTO ES CLAVE: Si tú respondes el correo, se le enviará al cliente
+      reply_to: email,
+
+      subject: `Nueva Reserva: ${tour?.nombre || tour} - ${nombre}`,
       text: generarMensajePlano({
         nombre,
         pais,
