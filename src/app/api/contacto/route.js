@@ -1,6 +1,4 @@
-import { getConnection } from "@/lib/db";
-import nodemailer from "nodemailer";
-
+import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const resend = new Resend("re_KiFarWDm_7uUPF7o2BoKjXCoa1SuaUfGv");
@@ -23,11 +21,12 @@ export async function POST(req) {
     const secretKey = process.env.RECAPTCHA_SECRET_KEY;
 
     if (!token) {
-      return res.status(400).json({
-        success: false,
-        message: "Token de reCAPTCHA no proporcionado",
-      });
+      return NextResponse.json(
+        { success: false, message: "Token de reCAPTCHA no proporcionado" },
+        { status: 400 },
+      );
     }
+
     // Verificar reCAPTCHA
     const verifyRes = await fetch(
       "https://www.google.com/recaptcha/api/siteverify",
