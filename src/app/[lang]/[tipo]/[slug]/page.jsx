@@ -260,6 +260,7 @@ const page = async ({ params }) => {
           alt={tour.nombre}
           priority
           fill
+          unoptimized
           sizes="(max-width: 768px) 100vh, 100vw"
           className="object-cover md:transition-transform md:duration-10000 md:group-hover:scale-105"
         />

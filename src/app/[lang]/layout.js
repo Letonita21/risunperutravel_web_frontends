@@ -1,12 +1,13 @@
-
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/menu/Navbar";
 import Footer from "@/components/menu/Footer";
 import WidgetWhatsapp from "@/components/contactos/WidgetWhatsapp";
 import { getDictionary } from "../dictionaries/getDictionary";
 import CookieBanner from "@/components/CookieBanner";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "../globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,8 @@ export default async function LangLayout({ children, params }) {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       {/* cambio de clave */}
+      <Analytics />
+      <SpeedInsights />
       <GoogleAnalytics gaId="G-H99RVXNPP6" />
       <CookieBanner />
       <Navbar dict={dict.Navbar} lang={lang} />

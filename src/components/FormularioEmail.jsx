@@ -244,7 +244,7 @@ const FormularioEmail = ({ onClose, titulo, lang, isOpen, form }) => {
     const res = await fetch("/api/contacto", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...formData, token, titulo }),
+      body: JSON.stringify({ ...formData, titulo }),
     });
 
     if (res.ok) {
