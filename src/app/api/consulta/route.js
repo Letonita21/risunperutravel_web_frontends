@@ -7,18 +7,36 @@ export async function POST(req) {
     const conn = await getConnection();
     const nombre = "Consulta por whatsapp";
 
-    await conn.execute(
-      `INSERT INTO reservas (nombre, tour, idioma, fecha_registro, estado) 
-       VALUES (?, ?, ?, NOW(), "atendido")`,
-      [nombre, tour, idioma]
+    const postData = await fetch(
+      `${process.env.NEXT_PUBLIC_ADMIN_URL}/dataTour/correos.php`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nombre,
+          tour,
+          idioma,
+        }),
+      },
     );
 
-    return NextResponse.json({ success: true });
+    if (postData.ok) {
+      console.log("Correo enviado exitosamente");
+      return NextResponse.json({ success: true });
+    } else {
+      console.log("Error al enviar el correo");
+      return NextResponse.json(
+        { error: "No se pudo procesar la reserva" },
+        { status: 500 },
+      );
+    }
   } catch (error) {
     console.error("Error al procesar la reserva:", error);
     return NextResponse.json(
       { error: "No se pudo procesar la reserva" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

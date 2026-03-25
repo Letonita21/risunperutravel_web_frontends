@@ -316,7 +316,7 @@ const MenuDinamico = ({ dict, lang, menu }) => {
     ${
       scrolled
         ? "bg-white shadow-[0_6px_12px_-4px_rgba(0,0,0,0.35)]"
-        : "bg-transparent border-b-2 border-[#A30923]"
+        : "bg-transparent border-b-2 border-[#FFF]"
     }
   `}
             >
@@ -344,7 +344,7 @@ const MenuDinamico = ({ dict, lang, menu }) => {
                 </Link>
               </div>
               <div className="flex w-full" ref={navRef}>
-                <div className="hidden sm:ml-6 lg:flex justify-center w-full space-x-2">
+                <div className="hidden sm:ml-6 lg:flex justify-center w-full space-x-2 gap-2">
                   <Link
                     href={`/${lang}`}
                     className="drop-shadow-sm drop-shadow-yellow-900 mr-3"

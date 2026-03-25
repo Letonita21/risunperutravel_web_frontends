@@ -45,35 +45,6 @@ export async function POST(req) {
       );
     }
 
-    // enviar correo a personal
-    /*    await resend.emails.send({
-      from: `risunperucorreos@risunperutravel.com`,
-      cc: "reservasrisunperutravel@gmail.com",
-      bcc: "yurnero216@gmail.com",
-      to: `${email}`,
-      subject: "Solicitud de reserva",
-      text: generarMensajePlano({
-        nombre,
-        pais,
-        email,
-        numero,
-        fecha_llegada,
-        numero_pasajeros,
-        mensaje,
-        tour,
-      }),
-      html: generarMensajeHTML({
-        nombre,
-        pais,
-        email,
-        numero,
-        fecha_llegada,
-        numero_pasajeros,
-        mensaje,
-        tour,
-      }),
-    }); */
-
     await resend.emails.send({
       from: "Risun Peru Travel <risunperucorreos@risunperutravel.com>", // cambia cuando verifiques dominio
       /* to: `${email}, reservasrisunperutravel@gmail.com`, // 👉 TÚ recibes */
@@ -106,27 +77,37 @@ export async function POST(req) {
       }),
     });
 
-    // Guardar en la base de datos
-    /*  const conn = await getConnection();
-    await conn.execute(
-      `INSERT INTO reservas 
-        (nombre, pais, idioma, email, numero, fecha_llegada, numero_pasajeros, mensaje, fecha_registro, tour, estado) 
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?, ?)`,
-      [
-        nombre,
-        pais,
-        idioma,
-        email,
-        numero,
-        fecha_llegada,
-        numero_pasajeros,
-        mensaje,
-        tour,
-        "sin atender",
-      ],
-    ); */
+    const postData = await fetch(
+      `${process.env.NEXT_PUBLIC_ADMIN_URL}/dataTour/correos.php`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nombre,
+          pais,
+          idioma,
+          email,
+          numero,
+          fecha_llegada,
+          numero_pasajeros,
+          mensaje,
+          tour,
+        }),
+      },
+    );
 
-    return Response.json({ success: true });
+    if (postData.ok) {
+      console.log("Correo enviado exitosamente");
+      return NextResponse.json({ success: true });
+    } else {
+      console.log("Error al enviar el correo");
+      return NextResponse.json(
+        { error: "No se pudo procesar la reserva" },
+        { status: 500 },
+      );
+    }
   } catch (error) {
     console.error("Error al procesar la reserva:", error);
     return Response.json(
