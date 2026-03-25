@@ -76,9 +76,12 @@ export async function POST(req) {
 
     await resend.emails.send({
       from: "Risun Peru Travel <risunperucorreos@risunperutravel.com>", // cambia cuando verifiques dominio
-      to: `${email}, reservasrisunperutravel@gmail.com`, // 👉 TÚ recibes
-      cc: "reservasrisunperutravel@gmail.com",
-      bcc: "yurnero216@gmail.com",
+      /* to: `${email}, reservasrisunperutravel@gmail.com`, // 👉 TÚ recibes */
+      to: [email, "reservasrisunperutravel@gmail.com"],
+      cc: ["reservasrisunperutravel@gmail.com"],
+      bcc: ["yurnero216@gmail.com"],
+      /* cc: "reservasrisunperutravel@gmail.com",
+      bcc: "yurnero216@gmail.com", */
       /* reply_to: email, */ // 👉 respondes al cliente directo
       subject: "Nueva solicitud de reserva",
       text: generarMensajePlano({
