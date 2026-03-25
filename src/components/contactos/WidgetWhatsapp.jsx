@@ -1,14 +1,52 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaWhatsapp, FaTimes } from "react-icons/fa";
 import { numeroWhatsapp } from "./numero";
+import { usePathname } from "next/navigation";
 
 export default function WidgetWhatsapp() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const [pageTitle, setPageTitle] = useState("");
+  const [idioma, setIdioma] = useState("");
+
+  // 1. Nuevo estado para controlar la visibilidad del mensaje
+  const [mostrarMensaje, setMostrarMensaje] = useState(false);
+
+  useEffect(() => {
+    const direccion = pathname.split("/");
+    const lang = direccion[1] || "es";
+    setIdioma(lang);
+    setPageTitle(document.title);
+
+    // 2. Temporizador de 5 segundos (5000 milisegundos)
+    const timer = setTimeout(() => {
+      setMostrarMensaje(true);
+    }, 5000);
+
+    // Limpieza del temporizador si el componente se desmonta antes
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   const mensaje = encodeURIComponent(
     "Hola, quiero información sobre los tours en Cusco",
   );
+
+  const changeWhatsapp = async () => {
+    const form = {
+      tour: pageTitle,
+      idioma: idioma,
+    };
+    try {
+      await fetch("/api/consulta", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+    } catch (error) {
+      console.error("Error al registrar el clic de WhatsApp", error);
+    }
+  };
 
   return (
     <div className="fixed bottom-8 right-6 z-50">
@@ -32,6 +70,9 @@ export default function WidgetWhatsapp() {
               href={`https://wa.me/${numeroWhatsapp}?text=${mensaje}`}
               target="_blank"
               className="flex items-center justify-between bg-white p-3 rounded-lg shadow hover:shadow-md transition"
+              onClick={() => {
+                changeWhatsapp();
+              }}
             >
               <div className="flex items-center gap-3">
                 <img
