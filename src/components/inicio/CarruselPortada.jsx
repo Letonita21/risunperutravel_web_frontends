@@ -55,22 +55,21 @@ const CarruselPortada = ({ portadaHome, dict, lang }) => {
             />
 
             {/* OVERLAY */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/60" />
+            <div className="absolute  inset-0 bg-gradient-to-b from-black/40 via-black/40 to-black/760" />
 
             {/* CONTENIDO (en móvil abajo, en desktop más abajo) */}
-            <div className="relative z-10 flex flex-col items-center justify-end text-center px-4 sm:px-8 text-white min-h-[100svh] pb-14 md:pb-24">
+            <div className="relative z-10 flex flex-col items-center justify-end text-center px-4 sm:px-8 text-white min-h-[100svh] pb-14 md:pb-24 ">
               {/* LOGO */}
               <div className="mb-6 md:mb-8">
                 <Image
                   src="/risun_logo2.png"
-                  width={800} // Reducido de 600
+                  width={800}
                   height={100}
                   sizes="(max-width:640px) 180px, (max-width:1024px) 200px, 320px"
-                  className="w-[140px] sm:w-[200px] lg:w-[320px] h-auto
-           drop-shadow-[0_8px_20px_rgba(0,0,0,0.6)]
-           transition-all duration-300
-           hover:scale-105
-           hover:drop-shadow-[0_12px_30px_rgba(0,0,0,0.8)]"
+                  className="w-[340px] sm:w-[500px] lg:w-[450px] h-auto 
+               /* El truco está aquí abajo */
+               drop-shadow-[0_0_15px_rgba(255,255,255,1)] 
+               transition-all duration-300 "
                   priority
                   alt="Risun Peru Travel"
                 />

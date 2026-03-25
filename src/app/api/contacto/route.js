@@ -39,7 +39,7 @@ export async function POST(req) {
 
     const verifyData = await verifyRes.json();
     if (!verifyData.success) {
-      return Response.json(
+      return NextResponse.json(
         { error: "Falló la verificación de reCAPTCHA" },
         { status: 400 },
       );
@@ -76,10 +76,10 @@ export async function POST(req) {
 
     await resend.emails.send({
       from: "Risun Peru Travel <risunperucorreos@risunperutravel.com>", // cambia cuando verifiques dominio
-      to: "risunperucorreos@risunperutravel.com", // 👉 TÚ recibes
+      to: `${email}, reservasrisunperutravel@gmail.com`, // 👉 TÚ recibes
       cc: "reservasrisunperutravel@gmail.com",
       bcc: "yurnero216@gmail.com",
-      reply_to: email, // 👉 respondes al cliente directo
+      /* reply_to: email, */ // 👉 respondes al cliente directo
       subject: "Nueva solicitud de reserva",
       text: generarMensajePlano({
         nombre,
