@@ -12,11 +12,11 @@ import Divider from "@/components/Divider";
 import { notFound } from "next/navigation";
 import Diagrama from "@/components/Diagrama";
 
-export const revalidate = 300;
-//Construsccion de medatesdcripciones para SEO
+export const revalidate = 3600;
+//Construsccion de medatesdcripciones para SEOO
 export async function generateMetadata(props) {
   const params = await props.params;
-  const { slug, lang } = params;
+  const { slug, lang, tipo } = params;
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL || "https://risunperutravel.com";
   const imgStorage = process.env.NEXT_PUBLIC_URL;
@@ -24,6 +24,10 @@ export async function generateMetadata(props) {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_ADMIN_URL}/dataTour/metadata.php?slug=${slug}`,
+      {
+        /* cache: 'force-cache', */
+        next: { revalidate: 3600 },
+      },
     );
     if (!res.ok) return { title: "Risun Peru Travel" };
     const tour = await res.json();
@@ -32,14 +36,14 @@ export async function generateMetadata(props) {
         title: "Risun Peru Travel | Agencia de Viajes en Cusco",
       };
     }
-    const canonical = `${baseUrl}/${lang}/${tour.tipo}/${slug}`;
-    const imagenUrl = tour.imagen_portada.startsWith("http")
-      ? tour.imagen_portada
-      : `${imgStorage}${tour.imagen_portada}`;
+
+    const canonical = `${process.env.BASE_URL}/${lang}/${tipo}/${slug}`;
+    const imagenUrl = `${imgStorage}${tour.imagen_portada}`;
     return {
       metadataBase: new URL(baseUrl),
-      title: `${tour.nombre}`,
+      title: tour.nombre,
       description: tour.frase_seo,
+      /* keywords: tour.keywords ? tour.keywords : [], */
       alternates: {
         canonical: canonical,
       },
@@ -48,16 +52,14 @@ export async function generateMetadata(props) {
         description: tour.frase_seo,
         url: canonical,
         siteName: "Risun Peru Travel",
-        locale: lang === "fr" ? "fr_FR" : "es_PE",
-        images: [
-          {
-            url: imagenUrl,
-            width: 1200,
-            height: 630,
-            alt: `Tour ${tour.nombre} - Risun Peru Travel`,
-          },
-        ],
-        type: "article",
+        locale: lang === "en" ? "en_US" : "es_PE",
+        images: {
+          url: imagenUrl,
+          width: 1200,
+          height: 630,
+          alt: `Reserva ${tour.nombre} en Risun Peru Travel`,
+        },
+        type: "website",
       },
       twitter: {
         card: "summary_large_image",
@@ -85,7 +87,7 @@ export async function generateMetadata(props) {
 }
 
 const page = async ({ params }) => {
-  const { slug, lang } = await params;
+  const { slug, tipo, lang } = await params;
   //traermos los textos de el idioma
   const diccionario = await getDictionary(lang);
   const dict = diccionario.Tour;
@@ -93,31 +95,31 @@ const page = async ({ params }) => {
   //traemos los datos del tour por slug(url)
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_ADMIN_URL}/dataTour/tour.php?slug=${slug}`,
+    {
+      /* cache: 'force-cache', */
+      next: { revalidate: 3600 },
+    },
   );
   const tour = await res.json();
-  if (!tour) {
-    notFound();
-  }
   //traermos 10 tours aleatorios en el idioma lang
   const rest = await fetch(
     `${process.env.NEXT_PUBLIC_ADMIN_URL}/dataTour/cards.php?lang=${lang}`,
+    {
+      /* cache: 'force-cache', */
+      next: { revalidate: 3600 },
+    },
   );
+
   const tours = await rest.json();
   //construccion de la estructura de datos para la pagina
   const urlImagenes = process.env.NEXT_PUBLIC_URL;
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL || "https://risunperutravel.com";
+  const canonical = `${process.env.BASE_URL}/${lang}/${tipo}/${slug}`;
   const precio = parseFloat(tour.precio_enganche).toFixed(2);
   const duracion = `P${parseInt(tour.duracion) || 1}D`;
 
-  /* const imagenAbsoluta = tour.imagen_portada.startsWith("http")
-    ? tour.imagen_portada
-    : `${urlImagenes}${tour.imagen_portada}`; */
-
-  const imagenAbsoluta = tour.imagen_portada?.startsWith("http")
-    ? tour.imagen_portada
-    : `${urlImagenes}${tour.imagen_portada || "default.jpg"}`;
-
+  const imagenAbsoluta = `${urlImagenes}${tour.imagen_portada}`;
   const faqEntities =
     tour.preguntas?.map((item) => ({
       "@type": "Question",
@@ -132,80 +134,88 @@ const page = async ({ params }) => {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Product",
-        name: `${tour.nombre}`,
+        "@type": "TravelAgency",
+        "@id": "https://risunperutravel.com/#agency",
+        name: "Risun Peru Travel",
+        url: "https://risunperutravel.com",
+        image: "https://risunperutravel.com/risun_logo2.png",
+        telephone: "+51 955 790 495",
+        priceRange: "$$",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "JR. LIBERTAD 1848 - B",
+          addressLocality: "Cusco",
+          postalCode: "08001",
+          addressCountry: "PE",
+        },
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+          ],
+          opens: "07:00",
+          closes: "20:00",
+        },
+      },
+      {
+        "@type": ["Product", "TouristTrip"],
+        name: tour.nombre,
         description: tour.frase_seo,
-        image: imagenAbsoluta,
-        brand: {
-          "@type": "Brand",
-          name: "Risun Peru Travel",
+        image: {
+          "@type": "ImageObject",
+          url: imagenAbsoluta,
+          width: 1200,
+          height: 630,
+          caption: tour.nombre,
+        },
+        touristType: tipo,
+        duration: duracion,
+        areaServed: {
+          "@type": "Country",
+          name: "Peru",
+        },
+        offeredBy: {
+          "@id": "https://risunperutravel.com/#agency",
         },
 
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: tour.rating || "5",
-          reviewCount: tour.reviews_total || "34",
-          bestRating: "5",
-          worstRating: "1",
-        },
+        ...(tour.video != "" && {
+          video: {
+            "@type": "VideoObject",
+            name: tour.nombre,
+            description: tour.frase_seo,
+            thumbnailUrl: imagenAbsoluta,
+            uploadDate: tour.videoUploadDate || new Date().toISOString(),
+            embedUrl: tour.video,
+          },
+        }),
+
         offers: {
           "@type": "Offer",
           price: precio,
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
-          url: `${baseUrl}/${lang}/${tour.tipo}/${tour.slug}`,
+          url: canonical,
+          validFrom: new Date().toISOString().split("T")[0],
           priceValidUntil: "2026-12-31",
-          shippingDetails: {
-            "@type": "OfferShippingDetails",
-            shippingRate: {
-              "@type": "MonetaryAmount",
-              value: 0,
-              currency: "USD",
-            },
-            shippingDestination: [
-              {
-                "@type": "DefinedRegion",
-                addressCountry: "PE",
-              },
-            ],
-            deliveryTime: {
-              "@type": "ShippingDeliveryTime",
-              handlingTime: {
-                "@type": "QuantitativeValue",
-                minValue: 0,
-                maxValue: 0,
-                unitCode: "DAY",
-              },
-              transitTime: {
-                "@type": "QuantitativeValue",
-                minValue: 0,
-                maxValue: 0,
-                unitCode: "DAY",
-              },
-            },
-          },
           hasMerchantReturnPolicy: {
             "@type": "MerchantReturnPolicy",
             applicableCountry: "PE",
             returnPolicyCategory:
               "https://schema.org/MerchantReturnFiniteReturnWindow",
-            merchantReturnDays: 60,
+            merchantReturnDays: "15",
             returnMethod: "https://schema.org/ReturnByMail",
             returnFees: "https://schema.org/FreeReturn",
           },
         },
-        hasPart: {
-          "@type": "TouristTrip",
-          name: tour.nombre,
-          description: tour.frase_seo,
-          touristType: tour.tipo,
-          duration: duracion,
-          areaServed: {
-            "@type": "Country",
-            name: "Peru",
-          },
-        },
       },
+
+      // 3. LAS FAQs (Esto estaba perfecto)
       ...(faqEntities.length > 0
         ? [
             {
@@ -216,7 +226,6 @@ const page = async ({ params }) => {
         : []),
     ],
   };
-
   const breadcrumbData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -224,20 +233,20 @@ const page = async ({ params }) => {
       {
         "@type": "ListItem",
         position: 1,
-        name: lang === "es" ? "Inicio" : "Accueil",
-        item: `https://terresdesincas.com/${lang}`,
+        name: lang === "es" ? "Inicio" : "Home",
+        item: `https://risunperutravel.com/${lang}`,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: tour.tipo,
-        item: `https://terresdesincas.com/${lang}/${tour.tipo}`,
+        item: `https://risunperutravel.com/${lang}/${tipo}`,
       },
       {
         "@type": "ListItem",
         position: 3,
         name: tour.nombre,
-        item: `https://terresdesincas.com/${lang}/${tour.tipo}/${tour.slug}`,
+        item: `https://risunperutravel.com/${lang}/${tipo}/${slug}`,
       },
     ],
   };
@@ -246,14 +255,12 @@ const page = async ({ params }) => {
   console.log(urlImagenes);
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
-      />
+      <script type="application/ld+json">
+        {JSON.stringify(structuredData)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(breadcrumbData)}
+      </script>
       <header className="relative w-full h-[70vh] sm:h-[80vh] md:h-[90vh] overflow-hidden group">
         <Image
           src={`${urlImagenes}${tour.imagen_portada}`}

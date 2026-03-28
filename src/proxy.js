@@ -1,26 +1,27 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
-const locales = ['es', 'en'];
-const defaultLocale = 'es';
+const locales = ["es", "en"];
+const defaultLocale = "es";
 
 function detectPreferredLocale(request) {
-  const acceptLang = request.headers.get('accept-language');
+  const acceptLang = request.headers.get("accept-language");
   if (!acceptLang) return defaultLocale;
 
   const preferred = acceptLang
-    .split(',')
-    .map((lang) => lang.split(';')[0].split('-')[0])
+    .split(",")
+    .map((lang) => lang.split(";")[0].split("-")[0])
     .find((lang) => locales.includes(lang));
 
   return preferred || defaultLocale;
 }
-export function middleware(request) {
+
+export function proxy(request) {
   const { pathname } = request.nextUrl;
 
   const isInternal =
-    pathname.startsWith('/api') ||
-    pathname.startsWith('/_next') ||
-    pathname.includes('.') ||
+    pathname.startsWith("/api") ||
+    pathname.startsWith("/_next") ||
+    pathname.includes(".") ||
     locales.some((locale) => pathname.startsWith(`/${locale}`));
 
   if (isInternal) return NextResponse.next();
@@ -31,5 +32,5 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/((?!_next|.*\\..*).*)'],
+  matcher: ["/((?!_next|.*\\..*).*)"],
 };
