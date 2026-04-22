@@ -205,10 +205,11 @@ const MenuDinamico = ({ dict, lang, menu }) => {
                   {dict.contactenos}
                 </button>
               </Link>
-
-              <button className="cursor-pointer group relative h-8 items-center justify-center overflow-hidden rounded-md border border-[#047B3E] px-3 font-bold text-white bg-[#047B3E] transition-all duration-100 [box-shadow:5px_5px_rgb(82_82_82)] active:translate-x-[3px] active:translate-y-[3px]">
-                {dict.blog}
-              </button>
+              <Link href={`/${lang}/blog`}>
+                <button className="cursor-pointer group relative h-8 items-center justify-center overflow-hidden rounded-md border border-[#047B3E] px-3 font-bold text-white bg-[#047B3E] transition-all duration-100 [box-shadow:5px_5px_rgb(82_82_82)] active:translate-x-[3px] active:translate-y-[3px]">
+                  {dict.blog}
+                </button>
+              </Link>
             </div>
 
             <form onSubmit={handleBuscar} className="flex items-center gap-2">

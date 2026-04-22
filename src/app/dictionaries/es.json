@@ -382,7 +382,21 @@
 
 
         
+    },
+    "blog": {
+        "titulo": "Tu Guía de Viajes en Perú:",
+        "subtitulo": "Tips, Rutas y Experiencias en Cusco",
+        "p1": "El compromiso de <strong>Terres de Incas</strong> comienza mucho antes de tu llegada. Nuestro blog está diseñado para ofrecerte la información más útil y actualizada: desde guías completas hasta recomendaciones auténticas que te facilitarán la organización de tu viaje a Machu Picchu y otros atractivos peruanos.",
+        "p2": "Si necesitas saber cuál es la mejor temporada para viajar a Cusco, cómo aclimatarte correctamente a la altitud o qué empacar para el Camino Inca, estás en el lugar indicado.",
+        "p3": "¡Infórmate, prepárate y viaja como un experto!",
+        "leer": "Leer Articulo",
+        "desde": "Reserva ahora con",
+        "masDetalles": "Conoce más detalles",
+        "reserva": "Reserva tu entrada a Machu Picchu hoy!",
+        "consulta": "Consulta disponibilidad para tu fecha y asegura tu aventura.",
+        "ahora": "¡Consulta Ahora!"
     }
+    
 
     
 }
