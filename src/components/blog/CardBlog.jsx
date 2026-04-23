@@ -4,7 +4,7 @@ import Image from "next/image";
 import { LugarIcon } from "@/icons";
 
 const CardBlog = ({ dict, item, lang }) => {
-  const url = `${process.env.NEXT_PUBLIC_BASE_URL}/imagenesBlog/`;
+  const url = `${process.env.IMAGENES_BLOG}`;
 
   /*  const fecha = new Date(item.created_at).toLocaleDateString(
     lang === "es" ? "es-ES" : "en-US",
@@ -22,12 +22,13 @@ const CardBlog = ({ dict, item, lang }) => {
     })
     .replace(" de ", " ");
 
+  console.log("aqui es la ", url);
   return (
     <article className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
       {/* IMAGE */}
       <div className="relative h-64 w-full overflow-hidden">
         <Image
-          src={`${url}${item.imagen_portada}`}
+          src={`${url}/${item.imagen_portada}`}
           alt={item.title}
           fill
           unoptimized

@@ -15,7 +15,8 @@ export async function generateMetadata({ params }) {
     { cache: "no-store" },
   );
   const article = await res.json();
-  const dominio = process.env.BASE_URL;
+  const dominio = process.env.IMAGENES_BLOG;
+  console.log("aca es el dominio ", dominio);
 
   return {
     title: article.title,
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: article.title,
       description: article.resumen,
-      images: [`${dominio}/imagenesBlog/${article.galeria[0].url}`],
+      images: [`${dominio}/${article.galeria[0].url}`],
       type: "article",
     },
   };
@@ -44,7 +45,7 @@ const page = async ({ params }) => {
     `${process.env.NEXT_PUBLIC_ADMIN_URL}/dataTour/cards.php?lang=${lang}`,
   );
   const tours = await rest.json();
-  const url = `${process.env.IMAGENES_BLOG}`;
+  const url = `${process.env.IMAGENES_BLOG}/`;
   const dominio = process.env.BASE_URL;
   const diccionario = await getDictionary(lang);
   const dict = diccionario.blog;
