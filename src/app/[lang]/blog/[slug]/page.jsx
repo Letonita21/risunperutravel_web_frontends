@@ -97,7 +97,9 @@ const page = async ({ params }) => {
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}
       </script>
-      <section className="relative w-full h-[80vh] md:h-[85vh] overflow-hidden group">
+
+      {/* HERO */}
+      <section className="relative w-full h-[75vh] md:h-[85vh] overflow-hidden group">
         {post.galeria && post.galeria.length > 0 && (
           <Image
             src={`${url}${post.galeria[0].url}`}
@@ -105,47 +107,72 @@ const page = async ({ params }) => {
             fill
             unoptimized
             priority
-            className="object-cover transition-transform duration-8000 ease-out group-hover:scale-110"
+            className="object-cover transition-transform duration-[8000ms] ease-out group-hover:scale-110"
             sizes="100vw"
           />
         )}
-        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/80" />
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6 z-10 mt-25">
-          <span className="text-sm md:text-lg font-medium text-orange-400 drop-shadow-sm drop-shadow-gray-950 tracking-[0.2em] uppercase">
+
+        {/* overlay más elegante */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
+
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6 z-10">
+          <span className="text-xs md:text-sm font-semibold text-orange-400 tracking-[0.3em] uppercase">
             {fecha}
           </span>
 
-          <h1 className="mt-2 text-4xl md:text-6xl font-medium text-white drop-shadow-sm drop-shadow-gray-950 leading-tight max-w-7xl">
+          <h1 className="mt-4 text-3xl md:text-6xl font-semibold text-white leading-tight max-w-5xl">
             {post.title}
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-white max-w-5xl drop-shadow-sm drop-shadow-gray-950 leading-relaxed">
+          <p className="mt-6 text-base md:text-xl text-gray-200 max-w-3xl leading-relaxed">
             {post.resumen}
           </p>
         </div>
       </section>
 
-      <section className="w-11/12 mt-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 min-h-screen">
-        <div className="md:col-span-2 flex flex-col justify-center">
+      {/* CONTENIDO */}
+      <section className="w-11/12 mt-14 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* MAIN */}
+        <div className="md:col-span-2 flex flex-col">
           <Link
             href={`/${lang}/blog`}
-            className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-orange-600 transition-colors mb-5"
+            className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-orange-500 transition mb-6"
           >
             ← Volver al Blog
           </Link>
-          <div
-            className="prose max-w-none"
-            dangerouslySetInnerHTML={{ __html: post.content }}
-          />
-          <div className="mt-5">
+
+          {/* CARD CONTENT */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+            <div
+              className="prose prose-lg max-w-none prose-headings:text-gray-800 prose-p:text-gray-600 prose-a:text-orange-600 hover:prose-a:text-orange-700"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          </div>
+
+          {/* GALERÍA */}
+          <div className="mt-10">
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+              Galería
+            </h2>
             <GaleriaBlog galeria={post.galeria} url={url} />
           </div>
         </div>
-        <div className="md:col-span-1 md:block flex flex-col gap-5">
-          <FlyerBlog dict={dict} numero={numeroWhatsapp} />
-          <div className="sticky top-30 self-start">
-            <CardsTours tours={tours} dict={dict} />
-            {/* <Comentarios comentarios={comentarios} /> */}
+
+        {/* SIDEBAR */}
+        <div className="md:col-span-1 flex flex-col gap-6">
+          {/* Flyer */}
+          <div className="bg-white rounded-2xl shadow-md p-5">
+            <FlyerBlog dict={dict} numero={numeroWhatsapp} />
+          </div>
+
+          {/* Tours sticky */}
+          <div className="sticky top-24 flex flex-col gap-6">
+            <div className="bg-white rounded-2xl shadow-md p-5">
+              <h3 className="text-lg font-semibold mb-4 text-gray-800">
+                Tours recomendados
+              </h3>
+              <CardsTours tours={tours} dict={dict} />
+            </div>
           </div>
         </div>
       </section>

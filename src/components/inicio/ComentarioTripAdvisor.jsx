@@ -83,160 +83,137 @@ const ComentarioTripAdvisor = ({ dict }) => {
   return (
     <>
       <style>{`
-                .marquee-inner {
-                    animation: marqueeScroll linear infinite;
-                }
+        .marquee-inner {
+          animation: marqueeScroll linear infinite;
+        }
 
-                @keyframes marqueeScroll {
-                    0% {
-                        transform: translateX(0%);
-                    }
+        @keyframes marqueeScroll {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
 
-                    100% {
-                        transform: translateX(-50%);
-                    }
-                }
-            `}</style>
       <section
         id="opiniones"
-        className="pt-5 pb-5 px-4 md:px-8 lg:px-16 justify-items-center"
+        className="bg-gradient-to-b from-white to-gray-50 pt-10 pb-14 px-4 md:px-8 lg:px-16"
       >
-        <h2 className="text-2xl font-bold text-[#a30923] mb-2 drop-shadow-xs drop-shadow-gray-950">
-          OPINIONES
-        </h2>
-        <h3 className="text-3xl font-bold text-black-600 mb-4 drop-shadow-xs drop-shadow-gray-950">
-          {dict.tripAdvisorComentarios}
-        </h3>
-        <div className="w-44 h-1 bg-[#a30923] mt-3 mb-8 rounded-full" />
+        {/* HEADER */}
+        <div className="text-center mb-10">
+          <h2 className="text-2xl font-bold text-[#a30923] mb-2">OPINIONES</h2>
+          <h3 className="text-3xl font-semibold text-gray-900">
+            {dict.tripAdvisorComentarios}
+          </h3>
 
-        <Image
-          src="/trip-advisor-log.png"
-          width={350}
-          height={80}
-          alt="Trip Advisor logo"
-        />
-        <a
-          href="https://www.tripadvisor.com.pe/Attraction_Review-g294314-d32896514-Reviews-Risun_Peru_Travel-Cusco_Cusco_Region.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex w-fit items-center gap-2 mb-3 px-10 py-2 bg-green-700 text-white hover:bg-[#ffbf00] rounded-lg font-semibold text-sm shadow transition-all duration-300"
-        >
-          <ComentarioIcon /> {dict.verMas}
-        </a>
+          <div className="w-24 h-1 bg-[#a30923] mx-auto mt-4 rounded-full" />
+
+          <Image
+            src="/trip-advisor-log.png"
+            width={220}
+            height={60}
+            alt="Trip Advisor logo"
+            className="mx-auto mt-6 opacity-90"
+          />
+
+          <a
+            href="https://www.tripadvisor.com.pe/Attraction_Review-g294314-d32896514-Reviews-Risun_Peru_Travel-Cusco_Cusco_Region.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 mt-4 px-6 py-2 bg-emerald-600 text-white hover:bg-emerald-700 rounded-full font-medium text-sm shadow-md transition"
+          >
+            <ComentarioIcon /> {dict.verMas}
+          </a>
+        </div>
+
+        {/* CARRUSEL */}
         <div
-          className="overflow-hidden w-full relative max-w-full md:max-w-10/12 mx-auto"
+          className="overflow-hidden relative max-w-6xl mx-auto"
           onMouseEnter={() => setStopScroll(true)}
           onMouseLeave={() => setStopScroll(false)}
         >
-          <div className="absolute left-0 top-0 h-full w-5 md:w-20 z-10 pointer-events-none bg-linear-to-r from-white to-transparent" />
+          {/* Fade lados */}
+          <div className="absolute left-0 top-0 h-full w-16 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+          <div className="absolute right-0 top-0 h-full w-16 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+
           <div
-            className="marquee-inner w-fit flex"
+            className="marquee-inner flex w-fit"
             style={{
               animationPlayState: stopScroll ? "paused" : "running",
-              animationDuration: testimonials.length * 6000 + "ms",
+              animationDuration: testimonials.length * 7000 + "ms",
             }}
           >
-            {/*  carrusel */}
-            {/* Carrusel de testimonios */}
-            <div className="flex gap-8 overflow-x-auto py-8 px-2 scrollbar-hide">
+            <div className="flex gap-8 py-6">
               {[...testimonials, ...testimonials].map((item, index) => (
                 <div key={index} className="shrink-0">
-                  {/* Card burbuja */}
+                  {/* CARD PRO */}
                   <div
                     className="
-          relative
-          w-80 md:w-96
-          bg-white
-          rounded-3xl
-          px-6 pt-6 pb-10
-          border border-gray-200
-          shadow-[0_10px_30px_rgba(0,0,0,0.15)]
-        "
+                      relative
+                      w-80 md:w-96
+                      backdrop-blur-sm
+                      bg-white/80
+                      rounded-3xl
+                      px-6 pt-6 pb-10
+                      border border-white/40
+                      shadow-[0_8px_25px_rgba(0,0,0,0.08)]
+                      hover:shadow-[0_12px_35px_rgba(16,185,129,0.2)]
+                      hover:-translate-y-1
+                      transition-all duration-500
+                    "
                   >
-                    {/* Comillas */}
-                    <div className="absolute -top-4 left-6 text-6xl text-gray-300 leading-none">
+                    {/* Comillas suaves */}
+                    <div className="absolute -top-3 left-5 text-5xl text-gray-200">
                       “
                     </div>
 
-                    {/* Header */}
-                    <div className="flex items-center gap-3 mb-2">
+                    {/* HEADER */}
+                    <div className="flex items-center gap-3 mb-3">
                       <img
                         src="/tripadvisor.svg"
                         alt="Tripadvisor"
-                        className="w-10 h-10 rounded-full bg-green-300 p-1"
+                        className="w-10 h-10 rounded-full bg-emerald-100 p-1"
                       />
                       <div>
-                        <h3 className="font-semibold text-gray-900">
+                        <h3 className="font-semibold text-gray-900 text-sm">
                           {item.name}
                         </h3>
-                        <p className="text-sm text-gray-500">{item.titulo}</p>
-                        <p className="text-sm text-gray-500">
-                          <strong>{item.date}</strong>
-                        </p>
+                        <p className="text-xs text-gray-500">{item.titulo}</p>
+                        <p className="text-xs text-gray-400">{item.date}</p>
                       </div>
                     </div>
 
-                    {/* Estrellas */}
-                    <div className="flex items-center gap-2 my-2">
-                      {/* Círculos verdes (rating) */}
+                    {/* RATING */}
+                    <div className="flex items-center gap-1 mb-3">
                       {[...Array(item.calificacion)].map((_, i) => (
                         <span
                           key={i}
-                          className="
-        w-4 h-4
-        rounded-full
-        border-2 border-emerald-500
-        flex items-center justify-center
-      "
-                        >
-                          <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                        </span>
+                          className="w-3.5 h-3.5 rounded-full bg-emerald-500"
+                        />
                       ))}
-
-                      {/* Check azul verificado */}
-                      <span
-                        className="
-      w-4 h-4
-      rounded-full
-      bg-sky-500
-      flex items-center justify-center
-      drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]
-    "
-                      >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                          className="w-3 h-3 text-white"
-                          fill="currentColor"
-                        >
-                          <path d="M9 16.2l-3.5-3.5L4 14.2l5 5 11-11-1.5-1.4z" />
-                        </svg>
-                      </span>
                     </div>
 
-                    {/* Texto */}
-                    <p className="text-sm text-gray-700 leading-relaxed line-clamp-4">
+                    {/* TEXTO */}
+                    <p className="text-sm text-gray-600 leading-relaxed line-clamp-4">
                       {item.text}
                     </p>
 
-                    {/* Cola de la burbuja */}
+                    {/* TRIÁNGULO LIMPIO */}
                     <div
                       className="
-            absolute -bottom-4 left-10
-            w-0 h-0
-            border-l-[14px] border-l-transparent
-            border-r-[14px] border-r-transparent
-            border-t-[16px] border-t-white
-            drop-shadow-[0_6px_6px_rgba(0,0,0,0.15)]
-          "
+                        absolute -bottom-4 left-10
+                        w-0 h-0
+                        border-l-[14px] border-l-transparent
+                        border-r-[14px] border-r-transparent
+                        border-t-[16px] border-t-white
+                      "
                     />
-                    {/* Avatar flotante */}
-                    <div className="absolute -right-4 -bottom-4">
-                      <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+
+                    {/* ICONO FLOTANTE */}
+                    <div className="absolute -right-3 -bottom-3">
+                      <div className="w-9 h-9 rounded-full bg-emerald-500 flex items-center justify-center shadow-md">
                         <img
                           src="/tripadvisor.svg"
                           alt="Tripadvisor"
-                          className="w-6 h-6"
+                          className="w-5 h-5"
                         />
                       </div>
                     </div>
@@ -245,7 +222,6 @@ const ComentarioTripAdvisor = ({ dict }) => {
               ))}
             </div>
           </div>
-          <div className="absolute right-0 top-0 h-full w-5 md:w-20 z-10 pointer-events-none bg-linear-to-l from-white to-transparent" />
         </div>
       </section>
     </>
