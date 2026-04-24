@@ -54,15 +54,15 @@ const Footer = ({ dict, lang }) => {
   const terresDesIncas = [
     { nombre: dict.Nosotros, enlace: "/nosotros" },
     { nombre: dict.TerminosYCondiciones, enlace: "/terminos-y-condiciones" },
-    { nombre: dict.PoliticasDePrivacidad, enlace: "/politicas-de-privacidad" },
+    { nombre: dict.PoliticasDePrivacidad, enlace: "/terminos-y-condiciones" },
     {
       nombre: dict.PoliticasDeCancelacion,
-      enlace: "/politicas-de-cancelacion",
+      enlace: "/terminos-y-condiciones",
     },
-    {
+    /* {
       nombre: dict.PoliticaIntegradaDeCalidad,
       enlace: "/politica-integrada-de-calidad",
-    },
+    }, */
     { nombre: dict.CodigoEsnna, enlace: "/esnna" },
     { nombre: dict.AyudaSocial, enlace: "/filantropia" },
   ];

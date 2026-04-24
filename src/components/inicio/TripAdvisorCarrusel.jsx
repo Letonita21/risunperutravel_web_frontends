@@ -8,7 +8,7 @@ const testimonials = [
     name: "albert t",
     date: "ago. de 2025",
     titulo: "La mejor experiencia",
-    text: "Excelente atención desde el primer momento. El equipo de TERRESDESINCAS se encargó de cada detalle y mi viaje fue perfecto. Muy recomendados por su profesionalismo, amabilidad y capacidad de resolver cualquier duda. ¡Sin duda volveré a viajar con ustedes!",
+    text: "Excelente atención desde el primer momento. El equipo de Risun Peru Travel se encargó de cada detalle y mi viaje fue perfecto. Muy recomendados por su profesionalismo, amabilidad y capacidad de resolver cualquier duda. ¡Sin duda volveré a viajar con ustedes!",
     calificacion: 5,
   },
   {

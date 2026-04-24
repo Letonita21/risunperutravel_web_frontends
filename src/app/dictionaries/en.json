@@ -342,17 +342,41 @@
     "p9": "<p>We know true social impact is not measured only in kilometers traveled, but in <strong>transformed lives</strong>. By traveling with us, you become a driver of positive development, providing real opportunities for thousands of children to study, grow, and dream big.</p>",
     "p10": "<p><strong>Thank you for being part of a journey that goes far beyond landscapes: a journey toward a better future for Andean children.</strong></p>"
   },
+  "Contactanos": {
+    "titulo": "Have a question about a tour? Write to us...",
+    "titulo2": "Contact Us",
+    "contactenosCont":"<p>Thank you very much for contacting us. We will respond to all inquiries via email or social media within 24 hours. We are also available via chat, phone, and we look forward to connecting with you.</p>",
+    "redesTitulo": "Contact us also on our social media:",
+    "contacTitulo2": "Our Office and Hours",
+    "contacTitulo3": "Location:",
+    "contacTitulo4": "JR. Libertad 1848 – B",
+    "contacTitulo5": "Hours:",
+    "contacTitulo6": "Monday to Sunday",
+    "contacTitulo7": "8:00 a.m. - 6:00 p.m.",
+    "contacTitulo8": "Contact Us",
+    "contacTitulo9": "Main Email:",
+    "contacTitulo10": "rcperutravel@gmail.com:",
+    "contacTitulo11": "Call Us",
+    "contacTitulo12": "Office Phone:",
+    "contacTitulo13": "+51 955 790 495",
+    "contacTitulo14": "Mobile:",
+    "contacTitulo15": "+51 921 164 809",
+    "contacTitulo16": "WhatsApp:",
+    "contacTitulo17": "+51 921 164 809",
+    "contacTitulo18": "Find Us"
+},
   "blog": {
     "titulo": "Your Travel Guide in Peru:",
     "subtitulo": "Tips, Routes and Experiences in Cusco",
-    "p1": "The commitment of <strong>Terres des Incas</strong> begins long before your arrival. Our blog is designed to provide you with the most useful and updated information: from complete guides to authentic recommendations that will make it easier to organize your trip to Machu Picchu and other Peruvian attractions.",
-    "p2": "If you need to know the best season to travel to Cusco, how to properly acclimatize to the altitude, or what to pack for the Inca Trail, you are in the right place.",
-    "p3": "Get informed, get prepared, and travel like an expert!",
+    "p1": "At <strong>Risun Peru Travel</strong>, our commitment begins long before you set foot in Peru. Our blog is designed to support you at every stage of your journey, providing clear, up-to-date, and truly useful information: from complete guides to authentic recommendations based on local experience.",
+    "p2": "Here you will find everything you need to plan your adventure safely and stress-free: the best time to travel to Cusco, how to adapt to the altitude, what to pack for the Inca Trail, and key tips to fully enjoy Machu Picchu and other incredible destinations in Peru.",
+    "p3": "If you need to know the best time to travel to Cusco, how to properly acclimatize to the altitude, or what to pack for the Inca Trail, you are in the right place.",
+    "p4": "Get informed, get prepared, and travel like an expert!",
     "leer": "Read Article",
     "desde": "Book now with",
     "masDetalles": "Learn more details",
-    "reserva": "Book your Machu Picchu ticket today!",
+    "reserva": "Book your ticket to Machu Picchu today!",
     "consulta": "Check availability for your date and secure your adventure.",
     "ahora": "Check Now!"
-  }
+}
 }
