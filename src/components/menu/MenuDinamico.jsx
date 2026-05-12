@@ -23,6 +23,7 @@ import { UpIcon, DownIcon } from "@/icons";
 import { HomeIcon } from "@/icons";
 import BotonNavbar from "./BotonNavbar";
 import { BuscarIcon } from "@/icons";
+import { IoNewspaperOutline } from "react-icons/io5";
 
 const MenuDinamico = ({ dict, lang, menu }) => {
   const [scrolled, setScrolled] = useState(false);
@@ -321,7 +322,7 @@ const MenuDinamico = ({ dict, lang, menu }) => {
     }
   `}
             >
-              <div className="left-0 flex items-center lg:hidden gap-3">
+              <div className="left-0 flex items-center lg:hidden gap-4">
                 <DisclosureButton
                   className="group relative inline-flex items-center justify-center rounded-md text-white hover:bg-white/5 hover:text-yellow drop-shadow-xs drop-shadow-[#A30923]"
                   aria-label="buton menu"
@@ -335,14 +336,26 @@ const MenuDinamico = ({ dict, lang, menu }) => {
                     className="hidden size-10 group-data-open:block"
                   />
                 </DisclosureButton>
-                <Link
-                  href={`/${lang}`}
-                  onClick={() => close()}
-                  className="drop-shadow-sm drop-shadow-yellow-900 mr-3"
-                  aria-label="home mobil"
-                >
-                  <HomeIcon size={35} />
-                </Link>
+                {/* Contenedor de Navegación Rápida - Aquí agrupamos Home y Blog más cerca */}
+                <div className="flex items-center gap-2 border-l border-white/20 pl-3">
+                  <Link
+                    href={`/${lang}`}
+                    onClick={() => close()}
+                    className="group relative inline-flex items-center justify-center rounded-md text-white hover:bg-white/5 hover:text-yellow drop-shadow-xs drop-shadow-[#A30923]"
+                    aria-label="home mobil"
+                  >
+                    <HomeIcon size={35} />
+                  </Link>
+
+                  <Link
+                    href={`/${lang}/blog`}
+                    onClick={() => close()}
+                    className="group relative inline-flex items-center justify-center rounded-md text-white hover:bg-white/5 hover:text-yellow drop-shadow-xs drop-shadow-[#A30923]"
+                    aria-label="blog mobil"
+                  >
+                    <IoNewspaperOutline size={35} />
+                  </Link>
+                </div>
               </div>
               <div className="flex w-full" ref={navRef}>
                 <div className="hidden sm:ml-6 lg:flex justify-center w-full space-x-2 gap-2">
