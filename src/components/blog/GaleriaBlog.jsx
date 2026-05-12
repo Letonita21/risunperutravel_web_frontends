@@ -1,117 +1,113 @@
-'use client'
-import React, { useState, Fragment } from 'react'
-import Image from 'next/image'
-import { Dialog, Transition, TransitionChild, DialogPanel } from '@headlessui/react'
+"use client";
+import React, { useState, Fragment } from "react";
+import {
+  Dialog,
+  Transition,
+  TransitionChild,
+  DialogPanel,
+} from "@headlessui/react";
 
 const GaleriaBlog = ({ galeria, url, portada }) => {
-    const [isOpen, setIsOpen] = useState(false)
-    const [imagenSeleccionada, setImagenSeleccionada] = useState('')
+  const [isOpen, setIsOpen] = useState(false);
+  const [imagenSeleccionada, setImagenSeleccionada] = useState("");
 
-    const abrirModal = (imgUrl) => {
-        setImagenSeleccionada(imgUrl)
-        setIsOpen(true)
-    }
+  const abrirModal = (imgUrl) => {
+    setImagenSeleccionada(imgUrl);
+    setIsOpen(true);
+  };
 
-    const cerrarModal = () => {
-        console.log("click")
-        setIsOpen(false);
-    }
+  const cerrarModal = () => setIsOpen(false);
 
-    // 🔥 Excluimos explícitamente la portada
-    const imagenesGaleria = galeria?.filter(
-        (img) => img.url !== portada
-    )
+  const imagenesGaleria = galeria?.filter((img) => img.url !== portada);
 
-    if (!imagenesGaleria || imagenesGaleria.length === 0) return null
+  if (!imagenesGaleria || imagenesGaleria.length === 0) return null;
 
-    return (
-        <>
-            <section className="border-t border-gray-200 pt-16 mt-10">
-                <h2 className="text-2xl md:text-3xl font-medium text-gray-900 mb-10">
-                    Galería del artículo
-                </h2>
+  return (
+    <>
+      <section className="border-t border-gray-200 pt-16 mt-10 max-w-7xl mx-auto px-4">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-12 text-center uppercase tracking-[0.3em]">
+          Galería Fotográfica
+        </h2>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8">
-                    {imagenesGaleria.map((img) => (
-                        <div
-                            key={img.id}
-                            onClick={() => abrirModal(img.url)}
-                            className="
-                                relative
-                                aspect-square
-                                rounded-2xl
-                                overflow-hidden
-                                cursor-pointer
-                                group
-                                shadow-sm
-                                hover:shadow-2xl
-                                transition-all
-                                duration-300">
-                            <Image
-                                src={`${url}${img.url}`}
-                                alt={img.nombre}
-                                fill
-                                unoptimized
-                                sizes="(max-width: 768px) 50vw, 33vw"
-                                className="object-cover transition-transform duration-500 group-hover:scale-110"
-                            />
+        {/* Mosaico Dinámico con Grid Auto-rows */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-4">
+          {imagenesGaleria.map((img, index) => (
+            <div
+              key={img.id}
+              onClick={() => abrirModal(img.url)}
+              className={`
+                                relative overflow-hidden rounded-lg cursor-pointer group bg-black shadow-lg
+                                transition-all duration-500
+                                ${index % 7 === 0 ? "md:col-span-2 md:row-span-2" : ""} 
+                                ${index % 5 === 0 ? "md:row-span-2" : ""}
+                                ${index % 3 === 0 ? "md:col-span-2" : ""}
+                            `}
+            >
+              <img
+                src={`${url}${img.url}`}
+                alt={img.nombre}
+                className="w-full h-full object-cover 
+                                           grayscale group-hover:grayscale-0 
+                                           opacity-85 group-hover:opacity-100
+                                           transition-all duration-1000 ease-out
+                                           group-hover:scale-110"
+              />
 
-                            {/* Overlay hover elegante */}
-                            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-                        </div>
-                    ))}
-                </div>
-            </section>
+              {/* Overlay de color suave al pasar el mouse */}
+              <div className="absolute inset-0 bg-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-            {/* MODAL */}
-            <Transition appear show={isOpen} as={Fragment}>
-                <Dialog as="div" className="relative z-50" onClose={cerrarModal}>
-                    <TransitionChild
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                    >
-                        <div className="fixed inset-0 bg-black/90 backdrop-blur-md" />
-                    </TransitionChild>
+              {/* Líneas de enfoque (esquinas) que aparecen en hover */}
+              <div className="absolute inset-4 border-l border-t border-white/0 group-hover:border-white/40 transition-all duration-700 pointer-events-none" />
+              <div className="absolute inset-4 border-r border-b border-white/0 group-hover:border-white/40 transition-all duration-700 pointer-events-none" />
+            </div>
+          ))}
+        </div>
+      </section>
 
-                    <div className="fixed inset-0 flex items-center justify-center p-6">
-                        <TransitionChild
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0 scale-95"
-                            enterTo="opacity-100 scale-100"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100 scale-100"
-                            leaveTo="opacity-0 scale-95"
-                        >
-                            <DialogPanel className="relative w-full max-w-6xl">
-                                <button
-                                    onClick={() => cerrarModal()}
-                                    className="absolute top-4 right-4 font-bold text-white bg-black/50 hover:bg-black/70 rounded-full p-3 transition z-10"
-                                >
-                                    ✕
-                                </button>
+      {/* MODAL */}
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-50" onClose={cerrarModal}>
+          <TransitionChild
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black/95 backdrop-blur-sm" />
+          </TransitionChild>
 
-                                <div className="relative w-full h-[85vh]">
-                                    <Image
-                                        src={`${url}${imagenSeleccionada}`}
-                                        alt="Vista ampliada"
-                                        fill
-                                        sizes="100vw"
-                                        className="object-contain rounded-2xl"
-                                    />
-                                </div>
-                            </DialogPanel>
-                        </TransitionChild>
-                    </div>
-                </Dialog>
-            </Transition>
-        </>
-    )
-}
+          <div className="fixed inset-0 flex items-center justify-center p-4">
+            <TransitionChild
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-90"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-90"
+            >
+              <DialogPanel className="relative max-w-6xl w-full flex items-center justify-center">
+                <button
+                  onClick={cerrarModal}
+                  className="absolute -top-14 right-0 text-white/60 hover:text-white text-4xl p-2 transition-all hover:rotate-90"
+                >
+                  ✕
+                </button>
+                <img
+                  src={`${url}${imagenSeleccionada}`}
+                  alt="Full color"
+                  className="max-h-[85vh] w-auto object-contain shadow-[0_0_50px_rgba(255,255,255,0.1)]"
+                />
+              </DialogPanel>
+            </TransitionChild>
+          </div>
+        </Dialog>
+      </Transition>
+    </>
+  );
+};
 
-export default GaleriaBlog
+export default GaleriaBlog;
