@@ -22,7 +22,7 @@ const CardBlog = ({ dict, item, lang }) => {
     })
     .replace(" de ", " ");
 
-  console.log("aqui es la ", url);
+
   return (
     <article className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
       {/* IMAGE */}

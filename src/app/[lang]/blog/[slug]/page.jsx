@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   );
   const article = await res.json();
   const dominio = process.env.IMAGENES_BLOG;
-  console.log("aca es el dominio ", dominio);
+ 
 
   return {
     title: article.title,
