@@ -85,6 +85,9 @@ export async function generateMetadata({ params }) {
 export default async function Home({ params }) {
   const { lang } = await params;
   const dict = await getDictionary(lang);
+  const tripAdvisor = await fetch(`${process.env.NEXT_PUBLIC_ADMIN_URL}/comentarios/?tipo=tripadvisor`)
+  const google = await fetch(`${process.env.NEXT_PUBLIC_ADMIN_URL}/comentarios/?tipo=google`)
+
 
   const jsonLdHome = {
     "@context": "https://schema.org",
@@ -142,8 +145,8 @@ export default async function Home({ params }) {
         <Divider />
         <Traking dict={dict.Body} lang={lang} />
         <Divider />
-        <ComentarioTripAdvisor dict={dict.Body} />
-        <ComentarioGoogle dict={dict.Body} />
+        <ComentarioTripAdvisor dict={dict.Body} comentarios={ await tripAdvisor.json()} />
+        <ComentarioGoogle dict={dict.Body} comentarios={await google.json()} />
         <Divider />
         <LoMejorDePeru dict={dict.Body} lang={lang} />
         <Divider />

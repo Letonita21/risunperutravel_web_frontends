@@ -2,7 +2,7 @@
 import { StarIcon, ComentarioIcon } from "@/icons";
 import Image from "next/image";
 import { useState } from "react";
-
+/* 
 const testimonials = [
   {
     name: "albert t",
@@ -75,9 +75,9 @@ Nous avons fait du raft et une sortie à cheval en toute confiance.
 A recommander`,
     calificacion: 5,
   },
-];
+]; */
 
-const ComentarioTripAdvisor = ({ dict }) => {
+const ComentarioTripAdvisor = ({ dict, comentarios }) => {
   const [stopScroll, setStopScroll] = useState(false);
 
   return (
@@ -138,11 +138,11 @@ const ComentarioTripAdvisor = ({ dict }) => {
             className="marquee-inner flex w-fit"
             style={{
               animationPlayState: stopScroll ? "paused" : "running",
-              animationDuration: testimonials.length * 7000 + "ms",
+              animationDuration: comentarios.length * 7000 + "ms",
             }}
           >
             <div className="flex gap-8 py-6">
-              {[...testimonials, ...testimonials].map((item, index) => (
+              {[...comentarios, ...comentarios].map((item, index) => (
                 <div key={index} className="shrink-0">
                   {/* CARD PRO */}
                   <div
@@ -174,16 +174,16 @@ const ComentarioTripAdvisor = ({ dict }) => {
                       />
                       <div>
                         <h3 className="font-semibold text-gray-900 text-sm">
-                          {item.name}
+                          {item.nombre}
                         </h3>
                         <p className="text-xs text-gray-500">{item.titulo}</p>
-                        <p className="text-xs text-gray-400">{item.date}</p>
+                        <p className="text-xs text-gray-400">{item.fecha}</p>
                       </div>
                     </div>
 
                     {/* RATING */}
                     <div className="flex items-center gap-1 mb-3">
-                      {[...Array(item.calificacion)].map((_, i) => (
+                      {[...Array(item.puntaje)].map((_, i) => (
                         <span
                           key={i}
                           className="w-3.5 h-3.5 rounded-full bg-emerald-500"
@@ -193,7 +193,7 @@ const ComentarioTripAdvisor = ({ dict }) => {
 
                     {/* TEXTO */}
                     <p className="text-sm text-gray-600 leading-relaxed line-clamp-4">
-                      {item.text}
+                      {item.comentario}
                     </p>
 
                     {/* TRIÁNGULO LIMPIO */}

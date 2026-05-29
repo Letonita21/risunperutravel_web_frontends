@@ -18,10 +18,10 @@ export const Portada = async ({ dict, lang }) => {
   const dataPortada = await res.json();
 
   const portadaHome = [
-    { id: dict.portada.id1.id, nombre: "", ruta: "/inicio/machupicchu-terresdesinca.jpg", slug: "", tipo: "" },
-    { id: dict.portada.id2.id, nombre: "", ruta: "/inicio/laguna_sirenachayoc-terresdes.webp", slug: "", tipo: "" },
-    { id: dict.portada.id3.id, nombre: "", ruta: "/inicio/palcoyo-terresdesincas.webp", slug: "", tipo: "" },
-    { id: dict.portada.id4.id, nombre: "", ruta: "/inicio/salkantay_trek-terresdesincas.webp", slug: "", tipo: "" },
+    { id: dict.portada.id1.id, nombre: "", ruta: "", slug: "", tipo: "" },
+    { id: dict.portada.id2.id, nombre: "", ruta: "", slug: "", tipo: "" },
+    { id: dict.portada.id3.id, nombre: "", ruta: "", slug: "", tipo: "" },
+    { id: dict.portada.id4.id, nombre: "", ruta: "", slug: "", tipo: "" },
   ];
 
   const cards = portadaHome.map(data => {
