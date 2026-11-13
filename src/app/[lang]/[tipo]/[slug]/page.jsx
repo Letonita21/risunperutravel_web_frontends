@@ -253,6 +253,7 @@ const page = async ({ params }) => {
 
   const lista = [lang, tour.tipo, tour.nombre];
   
+  
   return (
     <>
       <script type="application/ld+json">
