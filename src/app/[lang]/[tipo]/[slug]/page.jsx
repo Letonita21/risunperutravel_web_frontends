@@ -12,7 +12,7 @@ import Divider from "@/components/Divider";
 import { notFound } from "next/navigation";
 import Diagrama from "@/components/Diagrama";
 
-export const revalidate = 3600;
+export const revalidate = 60;
 //Construsccion de medatesdcripciones para SEOO
 export async function generateMetadata(props) {
   const params = await props.params;
@@ -26,7 +26,7 @@ export async function generateMetadata(props) {
       `${process.env.NEXT_PUBLIC_ADMIN_URL}/dataTour/metadata.php?slug=${slug}`,
       {
         /* cache: 'force-cache', */
-        next: { revalidate: 3600 },
+        next: { revalidate: 60 },
       },
     );
     if (!res.ok) return { title: "Risun Peru Travel" };
@@ -97,7 +97,7 @@ const page = async ({ params }) => {
     `${process.env.NEXT_PUBLIC_ADMIN_URL}/dataTour/tour.php?slug=${slug}`,
     {
       /* cache: 'force-cache', */
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 },
     },
   );
   const tour = await res.json();
@@ -106,7 +106,7 @@ const page = async ({ params }) => {
     `${process.env.NEXT_PUBLIC_ADMIN_URL}/dataTour/cards.php?lang=${lang}`,
     {
       /* cache: 'force-cache', */
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 },
     },
   );
 
@@ -252,7 +252,7 @@ const page = async ({ params }) => {
   };
 
   const lista = [lang, tour.tipo, tour.nombre];
-  
+
   
   return (
     <>
